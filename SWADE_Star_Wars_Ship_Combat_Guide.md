@@ -36,13 +36,13 @@ There is no chase track. Maneuvers grant **modifiers that apply to next round's 
 Each round during the Maneuver phase, the Pilot chooses one maneuver. **Next-round modifiers** apply to the Piloting phase of the following round.
 
 
-| Maneuver        | Effect                                                                   |
-| --------------- | ------------------------------------------------------------------------ |
-| **Evade**       | This round: -2 to ships targeting you; -2 to your outgoing targeting. No roll. |
-| **Force**       | Opposed Piloting vs one target. Success = target -2 Piloting next round. |
-| **Hold Steady** | Cancels Evade. +1 to your Piloting next round.                           |
-| **Boost**       | Piloting check (TN 4). Success = +2 Piloting next round.                 |
-| **Loop**        | Piloting check (See note). Success = reverse advantage with one ship this round. |
+| Maneuver           | Effect                                                                           |
+| ------------------ | -------------------------------------------------------------------------------- |
+| **Evade**          | This round: -2 to ships targeting you; -2 to your outgoing targeting. No roll.   |
+| **Stay on Target** | Opposed Piloting vs one target. Success = target -2 Piloting next round.         |
+| **Hold Steady**    | Cancels Evade. +1 to your Piloting next round.                                   |
+| **Boost**          | Piloting check (TN 4). Success = +2 Piloting next round.                         |
+| **Loop**           | Piloting check (See note). Success = reverse advantage with one ship this round. |
 
 
 ### Maneuver Effects (Detailed)
@@ -53,11 +53,11 @@ Each round during the Maneuver phase, the Pilot chooses one maneuver. **Next-rou
 - **Roll:** None. Declare at start of Maneuver phase.
 - **Next round:** No modifier.
 
-**Force**
+**Stay on Target**
 
-- **Effect:** Apply pressure to one target. Make an **opposed Piloting** roll vs that ship's Pilot (TN 4 if no defender).
-- **Success:** Target suffers **-2 to Piloting** next round (you're forcing them to react).
-- **Raise:** Target -2 Piloting next round; **you** get **+1 to Piloting** next round.
+- **Effect:** Apply pressure to one target. Make an **opposed Piloting** roll vs that ship's Pilot.
+- **Success:** Target suffers **-2 to Piloting** next round (you're staying on their tail).
+- **Raise:** **You** get **+1 to Piloting** next round.
 - **Failure:** No effect.
 
 **Hold Steady**
@@ -201,15 +201,15 @@ This chapter combines the SWADE chase rules, ship mechanics, and Star Wars eleme
 Combat proceeds in rounds. Each round follows this order:
 
 
-| Phase                     | Who Acts                                        | What Happens                                                          |
-| ------------------------- | ----------------------------------------------- | --------------------------------------------------------------------- |
-| **1. Initiative**         | All ships                                       | Draw cards; higher card acts first and has *advantage* vs lower cards |
-| **2. Support (optional)** | Co-pilot, Commander, Engineer, Systems Operator | Aid other crew before their checks                                    |
+| Phase                     | Who Acts                                        | What Happens                                                           |
+| ------------------------- | ----------------------------------------------- | ---------------------------------------------------------------------- |
+| **1. Initiative**         | All ships                                       | Draw cards; higher card acts first and has *advantage* vs lower cards  |
+| **2. Support (optional)** | Co-pilot, Commander, Engineer, Systems Operator | Aid other crew before their checks                                     |
 | **3. Piloting**           | Pilot                                           | Piloting check (TN 4); determines which initiative card the ship keeps |
-| **4. Maneuver**           | Pilot                                           | Evade, Force, Hold Steady, Boost, or Loop                        |
-| **5. Gunnery**            | Gunners                                         | Fire weapons (based on advantage and range)                           |
-| **6. Systems**            | Engineer, Systems Operator                      | Repair, shield regen (Electronics check), sensor locks                |
-| **7. Complications**      | GM                                              | Resolve Club cards and system failures                                |
+| **4. Maneuver**           | Pilot                                           | Evade, Stay on Target, Hold Steady, Boost, or Loop                     |
+| **5. Gunnery**            | Gunners                                         | Fire weapons (based on advantage and range)                            |
+| **6. Systems**            | Engineer, Systems Operator                      | Repair, shield regen (Electronics check), sensor locks                 |
+| **7. Complications**      | GM                                              | Resolve Club cards and system failures                                 |
 
 
 ---
@@ -225,11 +225,11 @@ Each crew role has specific responsibilities. A character may fill multiple role
 **Your job:** Fly the ship, gain advantage, and set up shots for the gunners.
 
 
-| When               | Action          | Skill    | Effect                                                                                                                                           |
-| ------------------ | --------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
-| **Piloting phase** | Piloting check (TN 4) | Piloting | Success = keep highest of 2 initiative cards. Raise = draw another, pick best. Fail = must take lowest card.                                     |
-| **Maneuver phase** | Choose maneuver | ?        | Evade (-2 incoming, -2 outgoing), Force (target -2 next round), Hold Steady (+1), Boost (+2 Piloting next round), Loop (reverse advantage) |
-| **All phases**     | Declare speed   | ?        | Higher speed than opponents = +2 to Piloting; 2× speed = +4                                                                                      |
+| When               | Action                | Skill    | Effect                                                                                                                                              |
+| ------------------ | --------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Piloting phase** | Piloting check (TN 4) | Piloting | Success = keep highest of 2 initiative cards. Raise = draw another, pick best. Fail = must take lowest card.                                        |
+| **Maneuver phase** | Choose maneuver       | ?        | Evade (-2 incoming, -2 outgoing), Stay on Target (target -2 next round), Hold Steady (+1), Boost (+2 Piloting next round), Loop (reverse advantage) |
+| **All phases**     | Declare speed         | ?        | Higher speed than opponents = +2 to Piloting; 2? speed = +4                                                                                         |
 
 
 **Key modifiers to your Piloting check:** Ship Handling, ship hull/shaken, ship agility test (ship trait roll: fail = -1, success = +1), speed advantage, terrain/asteroids (-2).
@@ -245,7 +245,7 @@ Each crew role has specific responsibilities. A character may fill multiple role
 
 | When                  | Action              | Skill    | Effect                                                                                                 |
 | --------------------- | ------------------- | -------- | ------------------------------------------------------------------------------------------------------ |
-| **Gunnery phase**     | Fire weapons        | Shooting | TN 4. Modifiers stack (range, target Evading -2, your Evade outgoing -2, etc.); apply to roll.          |
+| **Gunnery phase**     | Fire weapons        | Shooting | TN 4. Modifiers stack (range, target Evading -2, your Evade outgoing -2, etc.); apply to roll.         |
 | **With advantage**    | Fire all weapons    | Shooting | May use fixed and turret weapons that bear on target. Each weapon system can target a different enemy. |
 | **Without advantage** | Return fire only    | Shooting | Turret weapons only; -2 to Shooting                                                                    |
 | **Snapfire weapons**  | Torpedoes, missiles | Shooting | -2 unless target at short range                                                                        |
@@ -335,7 +335,7 @@ Each crew role has specific responsibilities. A character may fill multiple role
 1. **Initiative**: Draw cards; compare for advantage.
 2. **Support**: Co-pilot, Commander, Engineer, Systems Operator aid Pilot/Gunners.
 3. **Piloting**: Pilot rolls; determine final initiative card.
-4. **Maneuver**: Pilot chooses Evade, Force, Hold Steady, Boost, or Loop.
+4. **Maneuver**: Pilot chooses Evade, Stay on Target, Hold Steady, Boost, or Loop.
 5. **Gunnery**: Gunners fire (advantage = all weapons; no advantage = turrets only, -2).
 6. **Systems**: Engineer repairs; Systems Operator activates shield regen (Electronics), sensor locks.
 7. **Complications**: Resolve Clubs; Engineer may attempt Reinforce when Club drawn.
@@ -415,15 +415,15 @@ Combat may end in several ways:
 | ------------------------------------------- | --------------------------- |
 | Base TN (ship attacks)                      | 4                           |
 | Speed advantage (faster than opponent)      | +2                          |
-| Speed advantage (2× faster)                 | +4                          |
+| Speed advantage (2? faster)                 | +4                          |
 | Climb advantage (atmosphere)                | +2                          |
 | Harsh terrain (debris, asteroids)           | -2                          |
 | Ship hull damaged / Shaken (see Hull)       | -1 or -2                    |
 | Without advantage (return fire)             | -2 Shooting                 |
 | Long range                                  | -4                          |
 | Medium range                                | -2                          |
-| Evade: target Evading (incoming)           | -2 to hit that target       |
-| Evade: you Evading (outgoing)              | -2 to your attacks          |
+| Evade: target Evading (incoming)            | -2 to hit that target       |
+| Evade: you Evading (outgoing)               | -2 to your attacks          |
 | Unstable platform (firing from moving ship) | -2 (often negated by Edges) |
 
 

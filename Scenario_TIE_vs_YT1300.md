@@ -45,7 +45,7 @@ All ships draw 2 cards. Results:
 ### Maneuver
 - TIE 1: **Hold Steady** — maintains position on YT-1300's tail.
 - YT-1300: **Evade** — defensive posture; ships targeting them -2, their outgoing targeting -2.
-- TIE 2: **Force** vs YT-1300. Opposed Piloting: TIE 2 wins. YT-1300 suffers -2 Piloting next round.
+- TIE 2: **Stay on Target** vs YT-1300. Opposed Piloting: TIE 2 wins. YT-1300 suffers -2 Piloting next round.
 
 ### Gunnery
 - **TIE 1** (advantage, short range): Fires dual lasers at YT-1300. TN 4. Roll 9 - 2 (target Evading) = 7 vs TN 4. **Hit.** Damage 2d10+2 = 14. Strips 14 from YT-1300 shields. **YT-1300 shields: 26.**
@@ -71,7 +71,7 @@ All ships draw 2 cards. Results:
 - TIE 2: 8♣, 3♥ — **Club drawn.**
 
 ### Piloting
-- **YT-1300** Pilot: d8 + 1 Handling - 2 (speed) - 2 (Force from TIE 2 last round) = TN 4. Rolls 9 - 3 = 6 — success. Keeps Jack.
+- **YT-1300** Pilot: d8 + 1 Handling - 2 (speed) - 2 (Stay on Target from TIE 2 last round) = TN 4. Rolls 9 - 3 = 6 — success. Keeps Jack.
 - **TIE 1** Pilot: d8 + 2 Handling + 2 (speed). Success. Keeps 10.
 - **TIE 2** Pilot: d8 + 2 Handling + 2 (speed). Success. Keeps 8.
 
@@ -120,7 +120,7 @@ All ships draw 2 cards. Results:
 
 ### Maneuver
 - YT-1300: **Evade** — ships targeting them -2, their outgoing targeting -2.
-- TIE 2: **Force** vs YT-1300 — success. YT-1300 -2 Piloting next round.
+- TIE 2: **Stay on Target** vs YT-1300 — success. YT-1300 -2 Piloting next round.
 - TIE 1: **Hold Steady** — clears Shaken (required; cannot take other maneuver).
 
 ### Gunnery
@@ -173,7 +173,7 @@ All ships draw 2 cards. Results:
 - TIE 2: 9♠, 6♣ — **Club**
 
 ### Piloting
-- **YT-1300** Pilot: d8 + 1 Handling - 2 (speed) - 2 (Force from TIE 2 last round) = -3. TN 4. Rolls 8 - 3 = 5 — success. Keeps 8.
+- **YT-1300** Pilot: d8 + 1 Handling - 2 (speed) - 2 (Stay on Target from TIE 2 last round) = -3. TN 4. Rolls 8 - 3 = 5 — success. Keeps 8.
 - **TIE 1** Pilot: d8 + 2 Handling + 2 (speed) - 2 (Crippled) = +2. TN 4. Rolls 5 + 2 = 7 — success. Keeps 5.
 - **TIE 2** Pilot: d8 + 2 Handling + 2 (speed). TN 4. Rolls 6 — success. Keeps 9.
 

@@ -29,9 +29,9 @@ A quick reference for players showing what to do in each phase. See the full com
 
 **4. Maneuver** — *Who: Pilot only*
 
-- Choose one: Evade | Force | Hold Steady | Boost | Loop
+- Choose one: Evade | Stay on Target | Hold Steady | Boost | Loop
 - Evade: -2 to ships targeting you; -2 to your outgoing targeting (until next Maneuver)
-- Force: Opposed Piloting vs target; success = target -2 Piloting next round
+- Stay on Target: Opposed Piloting vs target; success = target -2 Piloting next round
 - Hold Steady: Cancels Evade (incoming and outgoing penalties); +1 Piloting next round. Shaken ship: must declare Hold Steady (clears Shaken); may still fire.
 - Boost: Piloting TN 4; success = +2 Piloting next round; raise = +2 and draw extra card
 - Loop: Piloting (See note); success = reverse advantage with one ship this round + +1 Piloting next round
@@ -70,7 +70,7 @@ A quick reference for players showing what to do in each phase. See the full com
 | 1 Initiative    | — (observe cards; declare speed for modifiers)                                        |
 | 2 Support       | —                                                                                     |
 | 3 Piloting      | **Piloting check** — keep high/low card based on result                               |
-| 4 Maneuver      | **Choose maneuver** — Evade, Force, Hold Steady, Boost, or Loop (modifiers apply next round) |
+| 4 Maneuver      | **Choose maneuver** — Evade, Stay on Target, Hold Steady, Boost, or Loop (modifiers apply next round) |
 | 5 Gunnery       | — (unless also Gunner)                                                                |
 | 6 Systems       | —                                                                                     |
 | 7 Complications | —                                                                                     |
