@@ -38,7 +38,7 @@ Each round during the Maneuver phase, the Pilot chooses one maneuver. **Next-rou
 
 | Maneuver           | Effect                                                                           |
 | ------------------ | -------------------------------------------------------------------------------- |
-| **Evade**          | This round: -2 to ships targeting you; -2 to your outgoing targeting. No roll.   |
+| **Evade**          | Piloting check (TN 4), -1 per opposing ship. Success: -2 incoming targeting, -2 outgoing targeting. Raise: -1 outgoing targeting. |
 | **Stay on Target** | Opposed Piloting vs one target. Success = target -2 Piloting next round.         |
 | **Hold Steady**    | Cancels Evade. +1 to your Piloting next round.                                   |
 | **Boost**          | Piloting check (TN 4). Success = +2 Piloting next round.                         |
@@ -49,8 +49,10 @@ Each round during the Maneuver phase, the Pilot chooses one maneuver. **Next-rou
 
 **Evade**
 
-- **Effect (this round):** Defensive posture. Until your next Maneuver phase: ships targeting you suffer **-2**; your outgoing targeting suffers **-2**.
-- **Roll:** None. Declare at start of Maneuver phase.
+- **Effect:** Defensive posture. **Piloting** check (TN 4). Modifier: **-1 per opposing ship** to the roll.
+- **Success:** Until your next Maneuver phase: your incoming targeting suffers **-2** (ships targeting you); your outgoing targeting suffers **-2**.
+- **Raise:** Same, but your outgoing targeting suffers **-1** only.
+- **Failure:** No effect.
 - **Next round:** No modifier.
 
 **Stay on Target**
@@ -62,7 +64,7 @@ Each round during the Maneuver phase, the Pilot chooses one maneuver. **Next-rou
 
 **Hold Steady**
 
-- **Effect:** Steady flight. Cancels Evade (incoming and outgoing targeting penalties).
+- **Effect:** Steady flight. Cancels Evade (incoming targeting and outgoing targeting penalties).
 - **Shaken ships:** A Shaken ship clears Shaken by declaring **Hold Steady** as its maneuver; it may take no other maneuver that round.
 - **Roll:** None.
 - **Next round:** **+1 to your Piloting** (stable, predictable).
@@ -228,7 +230,7 @@ Each crew role has specific responsibilities. A character may fill multiple role
 | When               | Action                | Skill    | Effect                                                                                                                                              |
 | ------------------ | --------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **Piloting phase** | Piloting check (TN 4) | Piloting | Success = keep highest of 2 initiative cards. Raise = draw another, pick best. Fail = must take lowest card.                                        |
-| **Maneuver phase** | Choose maneuver       | ?        | Evade (-2 incoming, -2 outgoing), Stay on Target (target -2 next round), Hold Steady (+1), Boost (+2 Piloting next round), Loop (reverse advantage) |
+| **Maneuver phase** | Choose maneuver       | ?        | Evade (Piloting -1 per opponent; success -2 incoming targeting/-2 outgoing targeting, raise -1 outgoing targeting), Stay on Target (target -2 next round), Hold Steady (+1), Boost (+2 Piloting next round), Loop (reverse advantage) |
 | **All phases**     | Declare speed         | ?        | Higher speed than opponents = +2 to Piloting; 2? speed = +4                                                                                         |
 
 
@@ -245,7 +247,7 @@ Each crew role has specific responsibilities. A character may fill multiple role
 
 | When                  | Action              | Skill    | Effect                                                                                                 |
 | --------------------- | ------------------- | -------- | ------------------------------------------------------------------------------------------------------ |
-| **Gunnery phase**     | Fire weapons        | Shooting | TN 4. Modifiers stack (range, target Evading -2, your Evade outgoing -2, etc.); apply to roll.         |
+| **Gunnery phase**     | Fire weapons        | Shooting | TN 4. Modifiers stack (range, target Evading -2, your Evade outgoing targeting -2 or -1 (raise), etc.); apply to roll.         |
 | **With advantage**    | Fire all weapons    | Shooting | May use fixed and turret weapons that bear on target. Each weapon system can target a different enemy. |
 | **Without advantage** | Return fire only    | Shooting | Turret weapons only; -2 to Shooting                                                                    |
 | **Snapfire weapons**  | Torpedoes, missiles | Shooting | -2 unless target at short range                                                                        |
@@ -253,7 +255,7 @@ Each crew role has specific responsibilities. A character may fill multiple role
 
 **Range (from initiative card):** 2 = no shot; 3?7 = long (-4); 8?Jack = medium (-2); Queen?Joker = short (0).
 
-**To hit:** Base TN 4. Modifiers apply to your Shooting roll and stack (e.g., target Evading -2 + medium range -2 = -4; or your Evade outgoing -2 when you are Evading). Roll + modifiers vs TN 4.
+**To hit:** Base TN 4. Modifiers apply to your Shooting roll and stack (e.g., target Evading -2 + medium range -2 = -4; or your Evade outgoing targeting -2 or -1 when you are Evading (raise = -1)). Roll + modifiers vs TN 4.
 
 **Edges that help:** Ace Gunner, Steady Hands, Marksman.
 
@@ -346,7 +348,7 @@ Each crew role has specific responsibilities. A character may fill multiple role
 
 - **With advantage** (higher initiative card): May fire all weapons that can bear on target(s). Each weapon system may engage a different target.
 - **Without advantage**: Can return fire with **turret weapons only**, -2 to Shooting.
-- **To hit:** TN 4. Modifiers stack (range, target Evading, your Evade outgoing, etc.); apply total to your Shooting roll.
+- **To hit:** TN 4. Modifiers stack (range, target Evading, your Evade outgoing targeting, etc.); apply total to your Shooting roll.
 - **Range table:** 2 = no attack; 3-7 = long (-4); 8-Jack = medium (-2); Queen-Joker = short (0).
 - **Snapfire** (torpedoes): -2 unless target at short range.
 
@@ -422,8 +424,8 @@ Combat may end in several ways:
 | Without advantage (return fire)             | -2 Shooting                 |
 | Long range                                  | -4                          |
 | Medium range                                | -2                          |
-| Evade: target Evading (incoming)            | -2 to hit that target       |
-| Evade: you Evading (outgoing)               | -2 to your attacks          |
+| Evade: target Evading (incoming targeting) | -2 to hit that target       |
+| Evade: you Evading (outgoing targeting)    | -2 or -1 to your attacks (raise = -1) |
 | Unstable platform (firing from moving ship) | -2 (often negated by Edges) |
 
 

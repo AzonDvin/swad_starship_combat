@@ -30,7 +30,7 @@ A quick reference for players showing what to do in each phase. See the full com
 **4. Maneuver** — *Who: Pilot only*
 
 - Choose one: Evade | Stay on Target | Hold Steady | Boost | Loop
-- Evade: -2 to ships targeting you; -2 to your outgoing targeting (until next Maneuver)
+- Evade: Piloting TN 4, -1 per opposing ship; success = -2 incoming targeting, -2 outgoing targeting; raise = -1 outgoing targeting
 - Stay on Target: Opposed Piloting vs target; success = target -2 Piloting next round
 - Hold Steady: Cancels Evade (incoming and outgoing penalties); +1 Piloting next round. Shaken ship: must declare Hold Steady (clears Shaken); may still fire.
 - Boost: Piloting TN 4; success = +2 Piloting next round; raise = +2 and draw extra card
@@ -41,7 +41,7 @@ A quick reference for players showing what to do in each phase. See the full com
 - Systems Operator declares shield facing (if directional) — before firing
 - With advantage: Fire all weapons that bear on target(s); each weapon system may target a different enemy
 - Without advantage: Turret weapons only, -2 to Shooting
-- To hit: TN 4. Modifiers stack (e.g., target Evading -2 + medium -2 = -4; or your Evade outgoing -2 when Evading)
+- To hit: TN 4. Modifiers stack (e.g., target Evading -2 + medium -2 = -4; or your Evade outgoing targeting -2 or -1 when Evading)
 - Snapfire (torpedoes): -2 unless target at short range
 - Damage to shields first; excess to hull (Damaged = -1, Crippled = -2, max = destroyed)
 
