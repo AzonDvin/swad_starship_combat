@@ -44,12 +44,12 @@ All ships draw 2 cards. Results:
 
 ### Maneuver
 - TIE 1: **Hold Steady** — maintains position on YT-1300's tail.
-- YT-1300: **Evade** — defensive posture; attackers suffer -2 to hit.
+- YT-1300: **Evade** — defensive posture; ships targeting them -2, their outgoing targeting -2.
 - TIE 2: **Force** vs YT-1300. Opposed Piloting: TIE 2 wins. YT-1300 suffers -2 Piloting next round.
 
 ### Gunnery
-- **TIE 1** (advantage, short range): Fires dual lasers at YT-1300. TN 4. Roll 9 - 2 (Evade) = 7 vs TN 4. **Hit.** Damage 2d10+2 = 14. Strips 14 from YT-1300 shields. **YT-1300 shields: 26.**
-- **YT-1300** (advantage over TIE 2, medium range): Gunner fires quad turret at TIE 2. TN 4. Roll 3 - 2 (range) = 1 vs TN 4. **Miss.**
+- **TIE 1** (advantage, short range): Fires dual lasers at YT-1300. TN 4. Roll 9 - 2 (target Evading) = 7 vs TN 4. **Hit.** Damage 2d10+2 = 14. Strips 14 from YT-1300 shields. **YT-1300 shields: 26.**
+- **YT-1300** (advantage over TIE 2, medium range): Gunner fires quad turret at TIE 2. TN 4. Roll 3 - 2 (range) - 2 (Evade outgoing) = -1 vs TN 4. **Miss.**
 - **TIE 2** (no advantage): Return fire with turrets only — TIEs have no turrets. **Cannot fire** (fixed forward cannons only; no turret to return fire).
 
 ### Systems
@@ -85,9 +85,9 @@ All ships draw 2 cards. Results:
 **Advantage:** YT-1300 has advantage over both TIEs this round.
 
 ### Maneuver
-- YT-1300: **Hold Steady** — cancels Evade; no penalties.
+- YT-1300: **Hold Steady** — cancels Evade (incoming and outgoing penalties).
 - TIE 1: **Hold Steady** — maintains pursuit (not Shaken yet; becomes Shaken in Gunnery).
-- TIE 2: **Evade** — defensive, in case YT-1300 fires.
+- TIE 2: **Evade** — ships targeting them -2, their outgoing targeting -2.
 
 ### Gunnery
 - **YT-1300** (advantage): Quad turret at TIE 1, medium range (-2). TN 4. Roll 9 - 2 = 7 vs TN 4. **Hit.** Damage 2d10+2 = 20. TIE 1 has no shields. vs Toughness 20: **TIE 1 Shaken.**
@@ -119,13 +119,13 @@ All ships draw 2 cards. Results:
 **Advantage:** YT-1300 has advantage over both. TIE 2 has advantage over TIE 1.
 
 ### Maneuver
-- YT-1300: **Evade** — -2 to hit them.
+- YT-1300: **Evade** — ships targeting them -2, their outgoing targeting -2.
 - TIE 2: **Force** vs YT-1300 — success. YT-1300 -2 Piloting next round.
 - TIE 1: **Hold Steady** — clears Shaken (required; cannot take other maneuver).
 
 ### Gunnery
-- **YT-1300** (advantage over TIE 1, medium range): Quad turret at TIE 1. TN 4. Roll 8 - 2 = 6 vs TN 4. **Hit.** Damage 2d10+2 = 24. 24 exceeds Toughness 20 by 4 = **1 hull damage** (and Shaken). TIE 1 hull-damaged, -1 to all rolls.
-- **TIE 2** (advantage over TIE 1, short range): Dual lasers at YT-1300. TN 4. Roll 10 - 2 (Evade) = 8 vs TN 4. **Hit.** Damage 2d10+2 = 16. **YT-1300 shields: 14.**
+- **YT-1300** (advantage over TIE 1, medium range): Quad turret at TIE 1. TN 4. Roll 8 - 2 (range) - 2 (Evade outgoing) = 4 vs TN 4. **Hit.** Damage 2d10+2 = 24. 24 exceeds Toughness 20 by 4 = **1 hull damage** (and Shaken). TIE 1 hull-damaged, -1 to all rolls.
+- **TIE 2** (advantage over TIE 1, short range): Dual lasers at YT-1300. TN 4. Roll 10 - 2 (target Evading) = 8 vs TN 4. **Hit.** Damage 2d10+2 = 16. **YT-1300 shields: 14.**
 - **TIE 1** (no advantage, hull-damaged): Cannot fire.
 
 ### Systems
@@ -149,12 +149,12 @@ All ships draw 2 cards. Results:
 
 ### Maneuver
 - TIE 2: **Hold Steady** — keeps position.
-- YT-1300: **Evade** — maintains defensive posture (effect carries into Gunnery).
+- YT-1300: **Evade** — ships targeting them -2, their outgoing targeting -2 (effect carries into Gunnery).
 - TIE 1: **Hold Steady** — clears Shaken (required; cannot take other maneuver).
 
 ### Gunnery
-- **TIE 2** (Joker, +2, short, target Evade -2): TN 4. Roll 9 + 2 (Joker) - 2 (Evade) = 9 vs TN 4. **Hit with raise** (+1d6 damage). Damage 2d10+2+1d6 = 18+4 = 22. Strips 18 shields. **YT-1300 shields: 0** (depleted). Overflow 4 vs Toughness 25 — no effect (4 < 25).
-- **YT-1300** (advantage over TIE 1): Fires at TIE 1. TIE 1 at range 3 — long (-4). TN 4. Roll 10 - 4 = 6 vs TN 4. **Hit.** Damage 2d10+2 = 24. TIE 1: 1 hull damage already; 24 exceeds Toughness 20 by 4 = **2nd hull damage.** Crippled; -2 all rolls.
+- **TIE 2** (Joker, +2, short, target Evading -2): TN 4. Roll 9 + 2 (Joker) - 2 (target Evading) = 9 vs TN 4. **Hit with raise** (+1d6 damage). Damage 2d10+2+1d6 = 18+4 = 22. Strips 18 shields. **YT-1300 shields: 0** (depleted). Overflow 4 vs Toughness 25 — no effect (4 < 25).
+- **YT-1300** (advantage over TIE 1): Fires at TIE 1. TIE 1 at range 3 — long (-4). TN 4. Roll 10 - 4 (range) - 2 (Evade outgoing) = 4 vs TN 4. **Hit.** Damage 2d10+2 = 24. TIE 1: 1 hull damage already; 24 exceeds Toughness 20 by 4 = **2nd hull damage.** Crippled; -2 all rolls.
 - **TIE 1** (no advantage, 2 hull damage): Card is 3 — long range. Cannot fire effectively; no turret anyway.
 
 ### Systems
@@ -183,7 +183,7 @@ All ships draw 2 cards. Results:
 
 ### Maneuver
 - TIE 2: **Hold Steady**
-- YT-1300: **Loop** — Piloting check TN 4. Modifier -(Size − Handling) = -(8 − 1) = -7. Roll 11 - 7 = 4 — success (d8 aced: 8+3). Reverses advantage with TIE 2 (who had higher card) — now on TIE 2's tail. Turret can bear.
+- YT-1300: **Loop** — Piloting check (See guide). Modifier -(Size − Handling) = -(8 − 1) = -7. Roll 11 - 7 = 4 — success (d8 aced: 8+3). Reverses advantage with TIE 2 (who had higher card) — now on TIE 2's tail. Turret can bear.
 - TIE 1: **Hold Steady** — too damaged to maneuver aggressively.
 
 ### Gunnery

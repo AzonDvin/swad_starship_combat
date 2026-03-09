@@ -38,18 +38,18 @@ Each round during the Maneuver phase, the Pilot chooses one maneuver. **Next-rou
 
 | Maneuver        | Effect                                                                   |
 | --------------- | ------------------------------------------------------------------------ |
-| **Evade**       | This round: -2 to hit you, -2 to your attacks. No roll.                  |
+| **Evade**       | This round: -2 to ships targeting you; -2 to your outgoing targeting. No roll. |
 | **Force**       | Opposed Piloting vs one target. Success = target -2 Piloting next round. |
 | **Hold Steady** | Cancels Evade. +1 to your Piloting next round.                           |
-| **Boost**       | Piloting check. Success = +2 Piloting next round.                        |
-| **Loop**        | Piloting check. Success = reverse advantage with one ship this round.    |
+| **Boost**       | Piloting check (TN 4). Success = +2 Piloting next round.                 |
+| **Loop**        | Piloting check (See note). Success = reverse advantage with one ship this round. |
 
 
 ### Maneuver Effects (Detailed)
 
 **Evade**
 
-- **Effect (this round):** Defensive posture. Until your next Maneuver phase: attackers suffer **-2** to hit you; your ship suffers **-2** to all attacks.
+- **Effect (this round):** Defensive posture. Until your next Maneuver phase: ships targeting you suffer **-2**; your outgoing targeting suffers **-2**.
 - **Roll:** None. Declare at start of Maneuver phase.
 - **Next round:** No modifier.
 
@@ -62,21 +62,21 @@ Each round during the Maneuver phase, the Pilot chooses one maneuver. **Next-rou
 
 **Hold Steady**
 
-- **Effect:** Steady flight. Cancels any Evade penalty from your ship.
+- **Effect:** Steady flight. Cancels Evade (incoming and outgoing targeting penalties).
 - **Shaken ships:** A Shaken ship clears Shaken by declaring **Hold Steady** as its maneuver; it may take no other maneuver that round.
 - **Roll:** None.
 - **Next round:** **+1 to your Piloting** (stable, predictable).
 
 **Boost**
 
-- **Effect:** Push engines for advantage. **Piloting** check.
+- **Effect:** Push engines for advantage. **Piloting** check (TN 4).
 - **Success:** **+2 to your Piloting** next round.
 - **Raise:** +2 and **draw 1 extra card** next round (pick best of 3).
 - **Failure:** No bonus. Critical Failure: **-2 Piloting** next round (overstressed engines).
 
 **Loop**
 
-- **Effect:** Reverse onto a pursuer's tail. **Piloting** check. Modifier: **-(Size - Handling)** to the roll (e.g., Size 8, Handling +1 = -7).
+- **Effect:** Reverse onto a pursuer's tail. **Piloting** check (See note). **Note:** Base TN 4; modifier **-(Size - Handling)** to the roll (e.g., Size 8, Handling +1 = -7).
 - **Success:** Pick one ship that had a **higher card than you** this round. For **Gunnery this round**, you have **advantage over them** (you reversed onto their six). Also **+1 to your Piloting** next round.
 - **Raise:** Same, plus **draw 1 extra card** next round.
 - **Failure:** No effect. Critical Failure: **-2 Piloting** next round (disoriented).
@@ -205,7 +205,7 @@ Combat proceeds in rounds. Each round follows this order:
 | ------------------------- | ----------------------------------------------- | --------------------------------------------------------------------- |
 | **1. Initiative**         | All ships                                       | Draw cards; higher card acts first and has *advantage* vs lower cards |
 | **2. Support (optional)** | Co-pilot, Commander, Engineer, Systems Operator | Aid other crew before their checks                                    |
-| **3. Piloting**           | Pilot                                           | Piloting check; determines which initiative card the ship keeps       |
+| **3. Piloting**           | Pilot                                           | Piloting check (TN 4); determines which initiative card the ship keeps |
 | **4. Maneuver**           | Pilot                                           | Evade, Force, Hold Steady, Boost, or Loop                        |
 | **5. Gunnery**            | Gunners                                         | Fire weapons (based on advantage and range)                           |
 | **6. Systems**            | Engineer, Systems Operator                      | Repair, shield regen (Electronics check), sensor locks                |
@@ -227,9 +227,9 @@ Each crew role has specific responsibilities. A character may fill multiple role
 
 | When               | Action          | Skill    | Effect                                                                                                                                           |
 | ------------------ | --------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
-| **Piloting phase** | Piloting check  | Piloting | Success = keep highest of 2 initiative cards. Raise = draw another, pick best. Fail = must take lowest card.                                     |
-| **Maneuver phase** | Choose maneuver | ?        | Evade (-2 to hit you), Force (target -2 next round), Hold Steady (+1), Boost (+2 Piloting next round), Loop (reverse advantage) |
-| **All phases**     | Declare speed   | ?        | Higher speed than opponents = +2 to Piloting; 2? speed = +4                                                                                      |
+| **Piloting phase** | Piloting check (TN 4) | Piloting | Success = keep highest of 2 initiative cards. Raise = draw another, pick best. Fail = must take lowest card.                                     |
+| **Maneuver phase** | Choose maneuver | ?        | Evade (-2 incoming, -2 outgoing), Force (target -2 next round), Hold Steady (+1), Boost (+2 Piloting next round), Loop (reverse advantage) |
+| **All phases**     | Declare speed   | ?        | Higher speed than opponents = +2 to Piloting; 2× speed = +4                                                                                      |
 
 
 **Key modifiers to your Piloting check:** Ship Handling, ship hull/shaken, ship agility test (ship trait roll: fail = -1, success = +1), speed advantage, terrain/asteroids (-2).
@@ -245,7 +245,7 @@ Each crew role has specific responsibilities. A character may fill multiple role
 
 | When                  | Action              | Skill    | Effect                                                                                                 |
 | --------------------- | ------------------- | -------- | ------------------------------------------------------------------------------------------------------ |
-| **Gunnery phase**     | Fire weapons        | Shooting | TN 4. Modifiers stack (range, Evade -2, etc.); apply to roll.                                          |
+| **Gunnery phase**     | Fire weapons        | Shooting | TN 4. Modifiers stack (range, target Evading -2, your Evade outgoing -2, etc.); apply to roll.          |
 | **With advantage**    | Fire all weapons    | Shooting | May use fixed and turret weapons that bear on target. Each weapon system can target a different enemy. |
 | **Without advantage** | Return fire only    | Shooting | Turret weapons only; -2 to Shooting                                                                    |
 | **Snapfire weapons**  | Torpedoes, missiles | Shooting | -2 unless target at short range                                                                        |
@@ -253,7 +253,7 @@ Each crew role has specific responsibilities. A character may fill multiple role
 
 **Range (from initiative card):** 2 = no shot; 3?7 = long (-4); 8?Jack = medium (-2); Queen?Joker = short (0).
 
-**To hit:** Base TN 4. Modifiers apply to your Shooting roll and stack (e.g., Evade -2 + medium range -2 = -4 total). Roll + modifiers vs TN 4.
+**To hit:** Base TN 4. Modifiers apply to your Shooting roll and stack (e.g., target Evading -2 + medium range -2 = -4; or your Evade outgoing -2 when you are Evading). Roll + modifiers vs TN 4.
 
 **Edges that help:** Ace Gunner, Steady Hands, Marksman.
 
@@ -346,7 +346,7 @@ Each crew role has specific responsibilities. A character may fill multiple role
 
 - **With advantage** (higher initiative card): May fire all weapons that can bear on target(s). Each weapon system may engage a different target.
 - **Without advantage**: Can return fire with **turret weapons only**, -2 to Shooting.
-- **To hit:** TN 4. Modifiers stack (range, Evade, etc.); apply total to your Shooting roll.
+- **To hit:** TN 4. Modifiers stack (range, target Evading, your Evade outgoing, etc.); apply total to your Shooting roll.
 - **Range table:** 2 = no attack; 3-7 = long (-4); 8-Jack = medium (-2); Queen-Joker = short (0).
 - **Snapfire** (torpedoes): -2 unless target at short range.
 
@@ -415,14 +415,15 @@ Combat may end in several ways:
 | ------------------------------------------- | --------------------------- |
 | Base TN (ship attacks)                      | 4                           |
 | Speed advantage (faster than opponent)      | +2                          |
-| Speed advantage (2? faster)                 | +4                          |
+| Speed advantage (2× faster)                 | +4                          |
 | Climb advantage (atmosphere)                | +2                          |
 | Harsh terrain (debris, asteroids)           | -2                          |
 | Ship hull damaged / Shaken (see Hull)       | -1 or -2                    |
 | Without advantage (return fire)             | -2 Shooting                 |
 | Long range                                  | -4                          |
 | Medium range                                | -2                          |
-| Evade maneuver (target Evaded)              | -2 to hit defender          |
+| Evade: target Evading (incoming)           | -2 to hit that target       |
+| Evade: you Evading (outgoing)              | -2 to your attacks          |
 | Unstable platform (firing from moving ship) | -2 (often negated by Edges) |
 
 

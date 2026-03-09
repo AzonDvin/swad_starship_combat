@@ -23,27 +23,27 @@ A quick reference for players showing what to do in each phase. See the full com
 
 **3. Piloting** — *Who: Pilot only*
 
-- Piloting check (mods: Handling, speed advantage, hull, Support bonuses)
+- Piloting check TN 4 (mods: Handling, speed advantage, hull, Support bonuses)
 - Success = keep highest of 2 cards. Raise = draw another, pick best. Fail = must take lowest
 - Modifiers: +2 if faster than opponent; +4 if 2× faster
 
 **4. Maneuver** — *Who: Pilot only*
 
 - Choose one: Evade | Force | Hold Steady | Boost | Loop
-- Evade: -2 to hit you, -2 to your attacks (until next Maneuver)
+- Evade: -2 to ships targeting you; -2 to your outgoing targeting (until next Maneuver)
 - Force: Opposed Piloting vs target; success = target -2 Piloting next round
-- Hold Steady: Cancels Evade; +1 Piloting next round. Shaken ship: must declare Hold Steady (clears Shaken); may still fire.
+- Hold Steady: Cancels Evade (incoming and outgoing penalties); +1 Piloting next round. Shaken ship: must declare Hold Steady (clears Shaken); may still fire.
 - Boost: Piloting TN 4; success = +2 Piloting next round; raise = +2 and draw extra card
-- Loop: Piloting -(Size−Handling); success = reverse advantage with one ship this round + +1 Piloting next round
+- Loop: Piloting (See note); success = reverse advantage with one ship this round + +1 Piloting next round
 
 **5. Gunnery** — *Who: Gunners (act in initiative order)*
 
 - Systems Operator declares shield facing (if directional) — before firing
 - With advantage: Fire all weapons that bear on target(s); each weapon system may target a different enemy
 - Without advantage: Turret weapons only, -2 to Shooting
-- To hit: TN 4. Modifiers stack (e.g., Evade -2 + medium -2 = -4)
+- To hit: TN 4. Modifiers stack (e.g., target Evading -2 + medium -2 = -4; or your Evade outgoing -2 when Evading)
 - Snapfire (torpedoes): -2 unless target at short range
-- Damage to shields first; excess to hull (1 dmg = -1, 2+ crippled = -2, max = destroyed)
+- Damage to shields first; excess to hull (Damaged = -1, Crippled = -2, max = destroyed)
 
 **6. Systems** — *Who: Engineer, Systems Operator*
 
