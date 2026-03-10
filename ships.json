@@ -6,17 +6,31 @@
       "faction": "Rebel Alliance",
       "size": 6,
       "handling": 1,
-      "top_speed": 800,
-      "toughness": 15,
-      "armor": 5,
+      "speed": 800,
+      "toughness": 14,
+      "armor": 2,
       "hull": 3,
       "shields": 30,
-      "crew": ["Pilot", "Gunner"],
+      "crew": [
+        "Pilot",
+        "Gunner"
+      ],
       "climb": 3,
-      "weapons": "4× laser cannons, 2× proton torpedo tubes",
+      "weapons": "4\u00c3\u2014 laser cannons, 2\u00c3\u2014 proton torpedo tubes",
       "weapon_stats": [
-        {"name": "4× laser cannons", "damage": "2d10+2", "type": "laser", "arc": "fixed forward"},
-        {"name": "2× proton torpedo tubes", "damage": "3d8+4", "type": "torpedo", "arc": "fixed forward", "notes": "snapfire; half damage to shields"}
+        {
+          "name": "4\u00c3\u2014 laser cannons",
+          "damage": "2d10+2",
+          "type": "laser",
+          "arc": "fixed forward"
+        },
+        {
+          "name": "2\u00c3\u2014 proton torpedo tubes",
+          "damage": "3d8+4",
+          "type": "torpedo",
+          "arc": "fixed forward",
+          "notes": "snapfire; half damage to shields"
+        }
       ],
       "notes": "Incom T-65. Primary Rebel starfighter. Battle of Yavin, Hoth, Endor."
     },
@@ -26,18 +40,38 @@
       "faction": "Rebel Alliance",
       "size": 6,
       "handling": 0,
-      "top_speed": 800,
-      "toughness": 15,
-      "armor": 5,
-      "hull": 3,
+      "speed": 800,
+      "toughness": 14,
+      "armor": 2,
+      "hull": 4,
       "shields": 30,
-      "crew": ["Pilot", "Gunner"],
+      "crew": [
+        "Pilot",
+        "Gunner"
+      ],
       "climb": 3,
-      "weapons": "2× ion cannons, 2× laser cannons, proton torpedoes",
+      "weapons": "2\u00c3\u2014 ion cannons, 2\u00c3\u2014 laser cannons, proton torpedoes",
       "weapon_stats": [
-        {"name": "2× ion cannons", "damage": "2d8", "type": "ion", "arc": "turret", "notes": "disables systems"},
-        {"name": "2× laser cannons", "damage": "2d10+2", "type": "laser", "arc": "fixed forward"},
-        {"name": "Proton torpedoes", "damage": "3d8+4", "type": "torpedo", "arc": "fixed forward", "notes": "snapfire; half damage to shields"}
+        {
+          "name": "2\u00c3\u2014 ion cannons",
+          "damage": "2d8",
+          "type": "ion",
+          "arc": "turret",
+          "notes": "disables systems"
+        },
+        {
+          "name": "2\u00c3\u2014 laser cannons",
+          "damage": "2d10+2",
+          "type": "laser",
+          "arc": "fixed forward"
+        },
+        {
+          "name": "Proton torpedoes",
+          "damage": "3d8+4",
+          "type": "torpedo",
+          "arc": "fixed forward",
+          "notes": "snapfire; half damage to shields"
+        }
       ],
       "notes": "Koensayr BTL-A4. Heavy fighter/bomber. Battle of Yavin, used as bomber at Endor."
     },
@@ -47,17 +81,31 @@
       "faction": "Rebel Alliance",
       "size": 6,
       "handling": 2,
-      "top_speed": 1000,
-      "toughness": 15,
-      "armor": 5,
+      "speed": 1000,
+      "toughness": 11,
+      "armor": 2,
       "hull": 3,
       "shields": 30,
-      "crew": ["Pilot", "Gunner"],
+      "crew": [
+        "Pilot",
+        "Gunner"
+      ],
       "climb": 3,
-      "weapons": "2× laser cannons, concussion missiles",
+      "weapons": "2\u00c3\u2014 laser cannons, concussion missiles",
       "weapon_stats": [
-        {"name": "2× laser cannons", "damage": "2d10+2", "type": "laser", "arc": "fixed forward"},
-        {"name": "Concussion missiles", "damage": "3d6+2", "type": "missile", "arc": "fixed forward", "notes": "half damage to shields"}
+        {
+          "name": "2\u00c3\u2014 laser cannons",
+          "damage": "2d10+2",
+          "type": "laser",
+          "arc": "fixed forward"
+        },
+        {
+          "name": "Concussion missiles",
+          "damage": "3d6+2",
+          "type": "missile",
+          "arc": "fixed forward",
+          "notes": "half damage to shields"
+        }
       ],
       "notes": "RZ-1. Fast interceptor. Battle of Endor."
     },
@@ -67,18 +115,38 @@
       "faction": "Rebel Alliance",
       "size": 6,
       "handling": -1,
-      "top_speed": 650,
-      "toughness": 15,
-      "armor": 5,
-      "hull": 3,
+      "speed": 650,
+      "toughness": 14,
+      "armor": 2,
+      "hull": 4,
       "shields": 30,
-      "crew": ["Pilot", "Gunner"],
+      "crew": [
+        "Pilot",
+        "Gunner"
+      ],
       "climb": 3,
       "weapons": "Ion cannons, laser cannons, proton torpedoes",
       "weapon_stats": [
-        {"name": "Ion cannons", "damage": "2d8", "type": "ion", "arc": "fixed", "notes": "disables systems"},
-        {"name": "Laser cannons", "damage": "2d10+2", "type": "laser", "arc": "fixed"},
-        {"name": "Proton torpedoes", "damage": "3d8+4", "type": "torpedo", "arc": "fixed", "notes": "snapfire; half damage to shields"}
+        {
+          "name": "Ion cannons",
+          "damage": "2d8",
+          "type": "ion",
+          "arc": "fixed",
+          "notes": "disables systems"
+        },
+        {
+          "name": "Laser cannons",
+          "damage": "2d10+2",
+          "type": "laser",
+          "arc": "fixed"
+        },
+        {
+          "name": "Proton torpedoes",
+          "damage": "3d8+4",
+          "type": "torpedo",
+          "arc": "fixed",
+          "notes": "snapfire; half damage to shields"
+        }
       ],
       "notes": "Slayn & Korpil B-wing. Assault fighter. Battle of Endor."
     },
@@ -88,17 +156,33 @@
       "faction": "Rebel Alliance",
       "size": 8,
       "handling": 1,
-      "top_speed": 650,
+      "speed": 650,
       "toughness": 20,
-      "armor": 6,
+      "armor": 4,
       "hull": 4,
-      "shields": 40,
-      "crew": ["Pilot", "Co-pilot", "Gunner", "Engineer"],
+      "shields": 45,
+      "crew": [
+        "Pilot",
+        "Co-pilot",
+        "Gunner",
+        "Engineer"
+      ],
       "climb": 2,
       "weapons": "Quad laser turret, concussion missile launcher",
       "weapon_stats": [
-        {"name": "Quad laser turret", "damage": "2d10+2", "type": "laser", "arc": "turret"},
-        {"name": "Concussion missile launcher", "damage": "3d6+2", "type": "missile", "arc": "fixed", "notes": "half damage to shields"}
+        {
+          "name": "Quad laser turret",
+          "damage": "2d10+2",
+          "type": "laser",
+          "arc": "turret"
+        },
+        {
+          "name": "Concussion missile launcher",
+          "damage": "3d6+2",
+          "type": "missile",
+          "arc": "fixed",
+          "notes": "half damage to shields"
+        }
       ],
       "notes": "Modified YT-1300 light freighter. ANH, ESB, RotJ. Directional shields."
     },
@@ -108,17 +192,32 @@
       "faction": "Independent",
       "size": 8,
       "handling": 0,
-      "top_speed": 600,
-      "toughness": 19,
-      "armor": 5,
+      "speed": 600,
+      "toughness": 18,
+      "armor": 4,
       "hull": 4,
       "shields": 35,
-      "crew": ["Pilot", "Co-pilot", "Gunner"],
+      "crew": [
+        "Pilot",
+        "Co-pilot",
+        "Gunner"
+      ],
       "climb": 2,
       "weapons": "Quad laser turrets, proton torpedo launchers",
       "weapon_stats": [
-        {"name": "Quad laser turrets", "damage": "2d10+2", "type": "laser", "arc": "turret"},
-        {"name": "Proton torpedo launchers", "damage": "3d8+4", "type": "torpedo", "arc": "fixed forward", "notes": "half damage to shields"}
+        {
+          "name": "Quad laser turrets",
+          "damage": "2d10+2",
+          "type": "laser",
+          "arc": "turret"
+        },
+        {
+          "name": "Proton torpedo launchers",
+          "damage": "3d8+4",
+          "type": "torpedo",
+          "arc": "fixed forward",
+          "notes": "half damage to shields"
+        }
       ],
       "notes": "Corellian. 29m. Stock config. Most common light freighter; base for Millennium Falcon."
     },
@@ -128,16 +227,24 @@
       "faction": "Independent",
       "size": 8,
       "handling": 0,
-      "top_speed": 550,
-      "toughness": 17,
-      "armor": 5,
+      "speed": 550,
+      "toughness": 14,
+      "armor": 3,
       "hull": 3,
       "shields": 30,
-      "crew": ["Pilot", "Gunner"],
+      "crew": [
+        "Pilot",
+        "Gunner"
+      ],
       "climb": 2,
       "weapons": "Heavy laser cannon",
       "weapon_stats": [
-        {"name": "Heavy laser cannon", "damage": "2d8+2", "type": "laser", "arc": "turret"}
+        {
+          "name": "Heavy laser cannon",
+          "damage": "2d8+2",
+          "type": "laser",
+          "arc": "turret"
+        }
       ],
       "notes": "Corellian. Predecessor to YT-1300. No forward mandibles. Minimal armament, good sensors."
     },
@@ -147,16 +254,25 @@
       "faction": "Independent",
       "size": 8,
       "handling": 0,
-      "top_speed": 580,
-      "toughness": 17,
-      "armor": 5,
+      "speed": 580,
+      "toughness": 15,
+      "armor": 3,
       "hull": 3,
       "shields": 30,
-      "crew": ["Pilot", "Co-pilot", "Gunner"],
+      "crew": [
+        "Pilot",
+        "Co-pilot",
+        "Gunner"
+      ],
       "climb": 2,
       "weapons": "Twin light laser cannon",
       "weapon_stats": [
-        {"name": "Twin light laser cannon", "damage": "2d6+2", "type": "laser", "arc": "turret"}
+        {
+          "name": "Twin light laser cannon",
+          "damage": "2d6+2",
+          "type": "laser",
+          "arc": "turret"
+        }
       ],
       "notes": "Corellian. 28m. First YT to gain widespread popularity. Top-mounted cockpit."
     },
@@ -166,18 +282,27 @@
       "faction": "Independent",
       "size": 8,
       "handling": 0,
-      "top_speed": 620,
-      "toughness": 20,
-      "armor": 6,
+      "speed": 620,
+      "toughness": 19,
+      "armor": 4,
       "hull": 4,
       "shields": 38,
-      "crew": ["Pilot", "Co-pilot", "Gunner"],
+      "crew": [
+        "Pilot",
+        "Co-pilot",
+        "Gunner"
+      ],
       "climb": 2,
       "weapons": "Laser cannon turret",
       "weapon_stats": [
-        {"name": "Laser cannon turret", "damage": "2d8+2", "type": "laser", "arc": "turret"}
+        {
+          "name": "Laser cannon turret",
+          "damage": "2d8+2",
+          "type": "laser",
+          "arc": "turret"
+        }
       ],
-      "notes": "Corellian. 35m. Cockpit between mandibles. Double YT-1300 cargo. Pre–Battle of Yavin."
+      "notes": "Corellian. 35m. Cockpit between mandibles. Double YT-1300 cargo. Pre\u00e2\u20ac\u201cBattle of Yavin."
     },
     {
       "id": "yt_1760",
@@ -185,16 +310,25 @@
       "faction": "Independent",
       "size": 7,
       "handling": 1,
-      "top_speed": 680,
-      "toughness": 15,
-      "armor": 4,
+      "speed": 680,
+      "toughness": 11,
+      "armor": 3,
       "hull": 3,
       "shields": 25,
-      "crew": ["Pilot", "Gunner"],
+      "crew": [
+        "Pilot",
+        "Gunner"
+      ],
       "climb": 2,
       "weapons": "Light laser cannon (optional)",
       "weapon_stats": [
-        {"name": "Light laser cannon", "damage": "2d6+2", "type": "laser", "arc": "turret", "notes": "stock unarmed; owners often add"}
+        {
+          "name": "Light laser cannon",
+          "damage": "2d6+2",
+          "type": "laser",
+          "arc": "turret",
+          "notes": "stock unarmed; owners often add"
+        }
       ],
       "notes": "Corellian. 26.5m. Battle of Naboo era. Fast, light cargo. High maintenance."
     },
@@ -204,16 +338,27 @@
       "faction": "Rebel Alliance",
       "size": 16,
       "handling": -2,
-      "top_speed": 400,
-      "toughness": 39,
-      "armor": 10,
+      "speed": 400,
+      "toughness": 32,
+      "armor": 4,
       "hull": 6,
       "shields": 80,
-      "crew": ["Pilot", "Co-pilot", "Gunner", "Engineer", "Systems Operator"],
+      "crew": [
+        "Pilot",
+        "Co-pilot",
+        "Gunner",
+        "Engineer",
+        "Systems Operator"
+      ],
       "climb": 0,
       "weapons": "Dual laser cannons (turreted)",
       "weapon_stats": [
-        {"name": "Dual laser cannons (turreted)", "damage": "3d8+2", "type": "laser", "arc": "turret"}
+        {
+          "name": "Dual laser cannons (turreted)",
+          "damage": "3d8+2",
+          "type": "laser",
+          "arc": "turret"
+        }
       ],
       "notes": "CR90 corvette. Blockade runner. Opening of ANH."
     },
@@ -223,16 +368,25 @@
       "faction": "Rebel Alliance",
       "size": 12,
       "handling": -2,
-      "top_speed": 500,
-      "toughness": 29,
-      "armor": 8,
+      "speed": 500,
+      "toughness": 26,
+      "armor": 4,
       "hull": 5,
       "shields": 60,
-      "crew": ["Pilot", "Gunner", "Engineer"],
+      "crew": [
+        "Pilot",
+        "Gunner",
+        "Engineer"
+      ],
       "climb": 1,
       "weapons": "Minimal defensive armament",
       "weapon_stats": [
-        {"name": "Minimal defensive armament", "damage": "2d6+2", "type": "laser", "arc": "turret"}
+        {
+          "name": "Minimal defensive armament",
+          "damage": "2d6+2",
+          "type": "laser",
+          "arc": "turret"
+        }
       ],
       "notes": "Rebel transport. Evacuation of Hoth, Battle of Endor."
     },
@@ -242,17 +396,33 @@
       "faction": "Rebel Alliance",
       "size": 24,
       "handling": -3,
-      "top_speed": 200,
-      "toughness": 48,
-      "armor": 15,
+      "speed": 200,
+      "toughness": 35,
+      "armor": 4,
       "hull": 7,
       "shields": 120,
-      "crew": ["Pilot", "Co-pilot", "Gunner", "Engineer", "Systems Operator"],
+      "crew": [
+        "Pilot",
+        "Co-pilot",
+        "Gunner",
+        "Engineer",
+        "Systems Operator"
+      ],
       "climb": -2,
       "weapons": "Turbolasers, laser cannons",
       "weapon_stats": [
-        {"name": "Turbolasers", "damage": "4d10+4", "type": "turbolaser", "arc": "turret"},
-        {"name": "Laser cannons", "damage": "2d10+2", "type": "laser", "arc": "turret"}
+        {
+          "name": "Turbolasers",
+          "damage": "4d10+4",
+          "type": "turbolaser",
+          "arc": "turret"
+        },
+        {
+          "name": "Laser cannons",
+          "damage": "2d10+2",
+          "type": "laser",
+          "arc": "turret"
+        }
       ],
       "notes": "EF76. Redemption in ESB. Medical frigate."
     },
@@ -262,18 +432,41 @@
       "faction": "Rebel Alliance",
       "size": 32,
       "handling": -4,
-      "top_speed": 200,
-      "toughness": 60,
-      "armor": 18,
+      "speed": 200,
+      "toughness": 43,
+      "armor": 5,
       "hull": 8,
       "shields": 160,
-      "crew": ["Pilot", "Co-pilot", "Gunner", "Engineer", "Systems Operator"],
+      "crew": [
+        "Pilot",
+        "Co-pilot",
+        "Gunner",
+        "Engineer",
+        "Systems Operator"
+      ],
       "climb": -3,
       "weapons": "Turbolasers, ion cannons, tractor beams",
       "weapon_stats": [
-        {"name": "Turbolasers", "damage": "5d10+6", "type": "turbolaser", "arc": "turret"},
-        {"name": "Ion cannons", "damage": "3d8", "type": "ion", "arc": "turret", "notes": "disables systems"},
-        {"name": "Tractor beams", "damage": "—", "type": "tractor", "arc": "turret", "notes": "grapples; no damage"}
+        {
+          "name": "Turbolasers",
+          "damage": "5d10+6",
+          "type": "turbolaser",
+          "arc": "turret"
+        },
+        {
+          "name": "Ion cannons",
+          "damage": "3d8",
+          "type": "ion",
+          "arc": "turret",
+          "notes": "disables systems"
+        },
+        {
+          "name": "Tractor beams",
+          "damage": "\u00e2\u20ac\u201d",
+          "type": "tractor",
+          "arc": "turret",
+          "notes": "grapples; no damage"
+        }
       ],
       "notes": "MC80. Home One (Admiral Ackbar). Battle of Endor."
     },
@@ -283,16 +476,24 @@
       "faction": "Galactic Empire",
       "size": 6,
       "handling": 2,
-      "top_speed": 800,
-      "toughness": 15,
-      "armor": 5,
+      "speed": 800,
+      "toughness": 11,
+      "armor": 1,
       "hull": 3,
       "shields": null,
-      "crew": ["Pilot", "Gunner"],
+      "crew": [
+        "Pilot",
+        "Gunner"
+      ],
       "climb": 3,
       "weapons": "Dual linked laser cannons",
       "weapon_stats": [
-        {"name": "Dual linked laser cannons", "damage": "2d10+2", "type": "laser", "arc": "fixed forward"}
+        {
+          "name": "Dual linked laser cannons",
+          "damage": "2d10+2",
+          "type": "laser",
+          "arc": "fixed forward"
+        }
       ],
       "notes": "TIE/LN. No deflector shields. Battle of Yavin, throughout trilogy."
     },
@@ -302,16 +503,24 @@
       "faction": "Galactic Empire",
       "size": 6,
       "handling": 2,
-      "top_speed": 850,
-      "toughness": 15,
-      "armor": 5,
-      "hull": 3,
+      "speed": 850,
+      "toughness": 11,
+      "armor": 2,
+      "hull": 2,
       "shields": 30,
-      "crew": ["Pilot", "Gunner"],
+      "crew": [
+        "Pilot",
+        "Gunner"
+      ],
       "climb": 3,
       "weapons": "Laser cannons",
       "weapon_stats": [
-        {"name": "Laser cannons", "damage": "2d10+2", "type": "laser", "arc": "fixed forward"}
+        {
+          "name": "Laser cannons",
+          "damage": "2d10+2",
+          "type": "laser",
+          "arc": "fixed forward"
+        }
       ],
       "notes": "Vader's fighter. Battle of Yavin. Prototype with shields."
     },
@@ -321,17 +530,31 @@
       "faction": "Galactic Empire",
       "size": 6,
       "handling": -1,
-      "top_speed": 850,
-      "toughness": 15,
-      "armor": 5,
-      "hull": 3,
+      "speed": 850,
+      "toughness": 14,
+      "armor": 2,
+      "hull": 4,
       "shields": null,
-      "crew": ["Pilot", "Gunner"],
+      "crew": [
+        "Pilot",
+        "Gunner"
+      ],
       "climb": 3,
       "weapons": "Laser cannons, proton bombs",
       "weapon_stats": [
-        {"name": "Laser cannons", "damage": "2d10+2", "type": "laser", "arc": "fixed forward"},
-        {"name": "Proton bombs", "damage": "4d8+4", "type": "bomb", "arc": "fixed", "notes": "half damage to shields; requires bombing run"}
+        {
+          "name": "Laser cannons",
+          "damage": "2d10+2",
+          "type": "laser",
+          "arc": "fixed forward"
+        },
+        {
+          "name": "Proton bombs",
+          "damage": "4d8+4",
+          "type": "bomb",
+          "arc": "fixed",
+          "notes": "half damage to shields; requires bombing run"
+        }
       ],
       "notes": "TIE/sa. Asteroid field chase in ESB."
     },
@@ -341,16 +564,24 @@
       "faction": "Galactic Empire",
       "size": 6,
       "handling": 2,
-      "top_speed": 900,
-      "toughness": 15,
-      "armor": 5,
+      "speed": 900,
+      "toughness": 10,
+      "armor": 2,
       "hull": 3,
       "shields": null,
-      "crew": ["Pilot", "Gunner"],
+      "crew": [
+        "Pilot",
+        "Gunner"
+      ],
       "climb": 3,
       "weapons": "Quad laser cannons",
       "weapon_stats": [
-        {"name": "Quad laser cannons", "damage": "2d10+4", "type": "laser", "arc": "fixed forward"}
+        {
+          "name": "Quad laser cannons",
+          "damage": "2d10+4",
+          "type": "laser",
+          "arc": "fixed forward"
+        }
       ],
       "notes": "TIE/IN. Battle of Endor. Fast, no shields."
     },
@@ -360,16 +591,25 @@
       "faction": "Galactic Empire",
       "size": 8,
       "handling": -1,
-      "top_speed": 600,
-      "toughness": 20,
-      "armor": 6,
+      "speed": 600,
+      "toughness": 19,
+      "armor": 4,
       "hull": 4,
       "shields": 40,
-      "crew": ["Pilot", "Co-pilot", "Gunner"],
+      "crew": [
+        "Pilot",
+        "Co-pilot",
+        "Gunner"
+      ],
       "climb": 2,
       "weapons": "Laser cannons",
       "weapon_stats": [
-        {"name": "Laser cannons", "damage": "2d10+2", "type": "laser", "arc": "turret"}
+        {
+          "name": "Laser cannons",
+          "damage": "2d10+2",
+          "type": "laser",
+          "arc": "turret"
+        }
       ],
       "notes": "T-4a. Emperor's shuttle, Vader's shuttle. RotJ."
     },
@@ -379,19 +619,48 @@
       "faction": "Galactic Empire",
       "size": 40,
       "handling": -5,
-      "top_speed": 200,
-      "toughness": 75,
-      "armor": 29,
+      "speed": 200,
+      "toughness": 40,
+      "armor": 5,
       "hull": 9,
       "shields": 200,
-      "crew": ["Pilot", "Co-pilot", "Gunner", "Engineer", "Systems Operator"],
+      "crew": [
+        "Pilot",
+        "Co-pilot",
+        "Gunner",
+        "Engineer",
+        "Systems Operator"
+      ],
       "climb": -5,
       "weapons": "Turbolasers, ion cannons, tractor beams, TIE complement",
       "weapon_stats": [
-        {"name": "Turbolasers", "damage": "5d10+6", "type": "turbolaser", "arc": "turret"},
-        {"name": "Ion cannons", "damage": "3d8", "type": "ion", "arc": "turret", "notes": "disables systems"},
-        {"name": "Tractor beams", "damage": "—", "type": "tractor", "arc": "turret", "notes": "grapples; no damage"},
-        {"name": "TIE complement", "damage": "—", "type": "fighter", "arc": "—", "notes": "deployed fighters attack separately"}
+        {
+          "name": "Turbolasers",
+          "damage": "5d10+6",
+          "type": "turbolaser",
+          "arc": "turret"
+        },
+        {
+          "name": "Ion cannons",
+          "damage": "3d8",
+          "type": "ion",
+          "arc": "turret",
+          "notes": "disables systems"
+        },
+        {
+          "name": "Tractor beams",
+          "damage": "\u00e2\u20ac\u201d",
+          "type": "tractor",
+          "arc": "turret",
+          "notes": "grapples; no damage"
+        },
+        {
+          "name": "TIE complement",
+          "damage": "\u00e2\u20ac\u201d",
+          "type": "fighter",
+          "arc": "\u00e2\u20ac\u201d",
+          "notes": "deployed fighters attack separately"
+        }
       ],
       "notes": "Dominates all three films. Devastator, etc."
     },
@@ -401,19 +670,48 @@
       "faction": "Galactic Empire",
       "size": 60,
       "handling": -6,
-      "top_speed": 150,
-      "toughness": 115,
-      "armor": 40,
+      "speed": 150,
+      "toughness": 50,
+      "armor": 5,
       "hull": 12,
       "shields": 300,
-      "crew": ["Pilot", "Co-pilot", "Gunner", "Engineer", "Systems Operator"],
+      "crew": [
+        "Pilot",
+        "Co-pilot",
+        "Gunner",
+        "Engineer",
+        "Systems Operator"
+      ],
       "climb": -6,
       "weapons": "Heavy turbolasers, ion cannons, tractor beams, massive TIE complement",
       "weapon_stats": [
-        {"name": "Heavy turbolasers", "damage": "6d10+8", "type": "turbolaser", "arc": "turret"},
-        {"name": "Ion cannons", "damage": "4d8", "type": "ion", "arc": "turret", "notes": "disables systems"},
-        {"name": "Tractor beams", "damage": "—", "type": "tractor", "arc": "turret", "notes": "grapples; no damage"},
-        {"name": "Massive TIE complement", "damage": "—", "type": "fighter", "arc": "—", "notes": "deployed fighters attack separately"}
+        {
+          "name": "Heavy turbolasers",
+          "damage": "6d10+8",
+          "type": "turbolaser",
+          "arc": "turret"
+        },
+        {
+          "name": "Ion cannons",
+          "damage": "4d8",
+          "type": "ion",
+          "arc": "turret",
+          "notes": "disables systems"
+        },
+        {
+          "name": "Tractor beams",
+          "damage": "\u00e2\u20ac\u201d",
+          "type": "tractor",
+          "arc": "turret",
+          "notes": "grapples; no damage"
+        },
+        {
+          "name": "Massive TIE complement",
+          "damage": "\u00e2\u20ac\u201d",
+          "type": "fighter",
+          "arc": "\u00e2\u20ac\u201d",
+          "notes": "deployed fighters attack separately"
+        }
       ],
       "notes": "Super Star Destroyer. Vader's flagship. ESB, RotJ."
     },
@@ -423,17 +721,32 @@
       "faction": "Independent",
       "size": 8,
       "handling": 1,
-      "top_speed": 750,
+      "speed": 750,
       "toughness": 20,
-      "armor": 6,
+      "armor": 4,
       "hull": 4,
       "shields": 40,
-      "crew": ["Pilot", "Co-pilot", "Gunner"],
+      "crew": [
+        "Pilot",
+        "Co-pilot",
+        "Gunner"
+      ],
       "climb": 2,
       "weapons": "Dual heavy laser turrets, concussion missile launchers",
       "weapon_stats": [
-        {"name": "Dual heavy laser turrets", "damage": "2d10+4", "type": "laser", "arc": "turret"},
-        {"name": "Concussion missile launchers", "damage": "3d6+2", "type": "missile", "arc": "fixed forward", "notes": "half damage to shields"}
+        {
+          "name": "Dual heavy laser turrets",
+          "damage": "2d10+4",
+          "type": "laser",
+          "arc": "turret"
+        },
+        {
+          "name": "Concussion missile launchers",
+          "damage": "3d6+2",
+          "type": "missile",
+          "arc": "fixed forward",
+          "notes": "half damage to shields"
+        }
       ],
       "notes": "Corellian Engineering. Dash Rendar's Outrider. Saucer design, military-grade engines."
     },
@@ -443,16 +756,25 @@
       "faction": "Independent",
       "size": 8,
       "handling": 1,
-      "top_speed": 600,
+      "speed": 600,
       "toughness": 19,
-      "armor": 6,
+      "armor": 4,
       "hull": 4,
       "shields": 35,
-      "crew": ["Pilot", "Co-pilot", "Gunner"],
+      "crew": [
+        "Pilot",
+        "Co-pilot",
+        "Gunner"
+      ],
       "climb": 2,
       "weapons": "Twin light laser cannon",
       "weapon_stats": [
-        {"name": "Twin light laser cannon", "damage": "2d8+2", "type": "laser", "arc": "turret"}
+        {
+          "name": "Twin light laser cannon",
+          "damage": "2d8+2",
+          "type": "laser",
+          "arc": "turret"
+        }
       ],
       "notes": "Ghtroc Industries. Tortoise-shaped, 35m. Popular in Outer Rim. Good cargo capacity."
     },
@@ -462,16 +784,26 @@
       "faction": "Independent",
       "size": 8,
       "handling": 2,
-      "top_speed": 600,
-      "toughness": 17,
-      "armor": 5,
+      "speed": 600,
+      "toughness": 15,
+      "armor": 3,
       "hull": 3,
       "shields": 30,
-      "crew": ["Pilot", "Co-pilot", "Gunner"],
+      "crew": [
+        "Pilot",
+        "Co-pilot",
+        "Gunner"
+      ],
       "climb": 2,
       "weapons": "Light laser turret (optional/modified)",
       "weapon_stats": [
-        {"name": "Light laser turret", "damage": "2d6+2", "type": "laser", "arc": "turret", "notes": "stock unarmed; many mods add weapons"}
+        {
+          "name": "Light laser turret",
+          "damage": "2d6+2",
+          "type": "laser",
+          "arc": "turret",
+          "notes": "stock unarmed; many mods add weapons"
+        }
       ],
       "notes": "Corellian Hawk series. Kyle Katarn's Moldy Crow. Scout sensors, prioritizes maneuverability."
     },
@@ -481,17 +813,32 @@
       "faction": "Independent",
       "size": 10,
       "handling": -1,
-      "top_speed": 550,
-      "toughness": 25,
-      "armor": 7,
+      "speed": 550,
+      "toughness": 20,
+      "armor": 4,
       "hull": 5,
       "shields": 55,
-      "crew": ["Pilot", "Co-pilot", "Gunner", "Engineer"],
+      "crew": [
+        "Pilot",
+        "Co-pilot",
+        "Gunner",
+        "Engineer"
+      ],
       "climb": 1,
       "weapons": "Quad laser cannon, laser cannon",
       "weapon_stats": [
-        {"name": "Quad laser cannon", "damage": "2d10+2", "type": "laser", "arc": "turret"},
-        {"name": "Laser cannon", "damage": "2d8+2", "type": "laser", "arc": "turret"}
+        {
+          "name": "Quad laser cannon",
+          "damage": "2d10+2",
+          "type": "laser",
+          "arc": "turret"
+        },
+        {
+          "name": "Laser cannon",
+          "damage": "2d8+2",
+          "type": "laser",
+          "arc": "turret"
+        }
       ],
       "notes": "Kuat Systems. 82m. Detachable cargo module. Used by Rebels as assault shuttle."
     },
@@ -501,18 +848,38 @@
       "faction": "Rebel Alliance",
       "size": 8,
       "handling": 1,
-      "top_speed": 700,
-      "toughness": 20,
-      "armor": 6,
+      "speed": 700,
+      "toughness": 19,
+      "armor": 4,
       "hull": 4,
       "shields": 40,
-      "crew": ["Pilot", "Co-pilot", "Gunner", "Engineer"],
+      "crew": [
+        "Pilot",
+        "Co-pilot",
+        "Gunner",
+        "Engineer"
+      ],
       "climb": 2,
       "weapons": "Dorsal turret, nose turret, rear cannons",
       "weapon_stats": [
-        {"name": "Dorsal 360° laser turret", "damage": "2d10+2", "type": "laser", "arc": "turret"},
-        {"name": "Nose twin laser turret", "damage": "2d10+2", "type": "laser", "arc": "turret"},
-        {"name": "Rear laser cannons", "damage": "2d8+2", "type": "laser", "arc": "fixed rear"}
+        {
+          "name": "Dorsal 360\u00c2\u00b0 laser turret",
+          "damage": "2d10+2",
+          "type": "laser",
+          "arc": "turret"
+        },
+        {
+          "name": "Nose twin laser turret",
+          "damage": "2d10+2",
+          "type": "laser",
+          "arc": "turret"
+        },
+        {
+          "name": "Rear laser cannons",
+          "damage": "2d8+2",
+          "type": "laser",
+          "arc": "fixed rear"
+        }
       ],
       "notes": "Corellian. The Ghost (Phoenix Squad). Docks Phantom. Rebels."
     },
@@ -522,12 +889,17 @@
       "faction": "Independent",
       "size": 14,
       "handling": -2,
-      "top_speed": 450,
-      "toughness": 33,
-      "armor": 9,
+      "speed": 450,
+      "toughness": 28,
+      "armor": 3,
       "hull": 6,
       "shields": 50,
-      "crew": ["Pilot", "Co-pilot", "Engineer", "Systems Operator"],
+      "crew": [
+        "Pilot",
+        "Co-pilot",
+        "Engineer",
+        "Systems Operator"
+      ],
       "climb": 0,
       "weapons": "None",
       "weapon_stats": [],
@@ -539,16 +911,24 @@
       "faction": "Independent",
       "size": 8,
       "handling": 2,
-      "top_speed": 750,
-      "toughness": 18,
-      "armor": 5,
+      "speed": 750,
+      "toughness": 17,
+      "armor": 3,
       "hull": 3,
       "shields": 35,
-      "crew": ["Pilot", "Gunner"],
+      "crew": [
+        "Pilot",
+        "Gunner"
+      ],
       "climb": 2,
       "weapons": "Light laser cannon",
       "weapon_stats": [
-        {"name": "Light laser cannon", "damage": "2d6+2", "type": "laser", "arc": "turret"}
+        {
+          "name": "Light laser cannon",
+          "damage": "2d6+2",
+          "type": "laser",
+          "arc": "turret"
+        }
       ],
       "notes": "Mendel Baudo / CEC. Luxury yacht, organic lines. Popular with wealthy Outer Rim pilots."
     },
@@ -558,17 +938,32 @@
       "faction": "Independent",
       "size": 8,
       "handling": 1,
-      "top_speed": 680,
-      "toughness": 21,
-      "armor": 6,
+      "speed": 680,
+      "toughness": 20,
+      "armor": 4,
       "hull": 4,
       "shields": 42,
-      "crew": ["Pilot", "Co-pilot", "Gunner"],
+      "crew": [
+        "Pilot",
+        "Co-pilot",
+        "Gunner"
+      ],
       "climb": 2,
       "weapons": "Quad laser turrets, ion cannon",
       "weapon_stats": [
-        {"name": "Quad laser turrets", "damage": "2d10+2", "type": "laser", "arc": "turret"},
-        {"name": "Ion cannon", "damage": "2d8", "type": "ion", "arc": "turret", "notes": "disables systems"}
+        {
+          "name": "Quad laser turrets",
+          "damage": "2d10+2",
+          "type": "laser",
+          "arc": "turret"
+        },
+        {
+          "name": "Ion cannon",
+          "damage": "2d8",
+          "type": "ion",
+          "arc": "turret",
+          "notes": "disables systems"
+        }
       ],
       "notes": "Corellian. Evolutionary upgrade to YT-1300. Heavily armed, exceptional agility."
     },
@@ -578,18 +973,38 @@
       "faction": "Independent",
       "size": 8,
       "handling": 1,
-      "top_speed": 720,
+      "speed": 720,
       "toughness": 19,
-      "armor": 6,
-      "hull": 4,
+      "armor": 4,
+      "hull": 5,
       "shields": 38,
-      "crew": ["Pilot", "Co-pilot", "Gunner"],
+      "crew": [
+        "Pilot",
+        "Co-pilot",
+        "Gunner"
+      ],
       "climb": 2,
       "weapons": "Dual turbolasers, quad laser turrets, proton torpedoes",
       "weapon_stats": [
-        {"name": "Dual turbolasers", "damage": "4d8+2", "type": "turbolaser", "arc": "fixed forward"},
-        {"name": "Quad laser turrets", "damage": "2d10+2", "type": "laser", "arc": "turret"},
-        {"name": "Proton torpedoes", "damage": "3d8+4", "type": "torpedo", "arc": "fixed forward", "notes": "half damage to shields"}
+        {
+          "name": "Dual turbolasers",
+          "damage": "4d8+2",
+          "type": "turbolaser",
+          "arc": "fixed forward"
+        },
+        {
+          "name": "Quad laser turrets",
+          "damage": "2d10+2",
+          "type": "laser",
+          "arc": "turret"
+        },
+        {
+          "name": "Proton torpedoes",
+          "damage": "3d8+4",
+          "type": "torpedo",
+          "arc": "fixed forward",
+          "notes": "half damage to shields"
+        }
       ],
       "notes": "Core Galactic Systems. Ebon Hawk (KOTOR). Heavily modified, easy to repair."
     }

@@ -1,6 +1,24 @@
 """Generate YT-1300 vs 3 TIEs scenario with pure random rolls. Writes Scenario_YT1300_vs_3TIEs.md"""
 import random
-# No fixed seed = pure random each run
+import json
+
+# Load ship stats from ships.json
+with open("ships.json") as f:
+    ships_data = json.load(f)
+ships_by_id = {s["id"]: s for s in ships_data["ships"]}
+YT = ships_by_id["yt_1300"]
+TIE = ships_by_id["tie_fighter"]
+
+YT_SHIELDS_MAX = YT["shields"]
+YT_TOUGH = YT["toughness"]
+YT_HANDLING = YT["handling"]
+YT_SPEED = YT["speed"]
+TIE_TOUGH = TIE["toughness"]
+TIE_HULL_MAX = TIE["hull"]
+TIE_HANDLING = TIE["handling"]
+TIE_SPEED = TIE["speed"]
+# Speed advantage: faster than majority gets +1 momentum
+TIE_SPEED_ADV = 1 if TIE_SPEED > YT_SPEED else 0
 
 def d(n):
     r = random.randint(1, n)
@@ -39,7 +57,7 @@ def has_joker(drawn_cards):
     return any(v == JOKER_VAL for v, _ in drawn_cards)
 
 # Simulate 5 rounds with full state
-yt_shields = 40
+yt_shields = YT_SHIELDS_MAX
 tie_hull = [0,0,0]
 tie_shaken = [False,False,False]
 yt_shaken = False
@@ -67,12 +85,13 @@ for rd in range(1, 6):
     yt_pilot = max(d(10), d(6))  # Wild Card: skill die and wild die, take best
     t1_pilot, t2_pilot, t3_pilot = d(6), d(6), d(6)
     
-    # Piloting check: success (TN 4) = keep highest; fail = keep lowest. Joker = auto-pass. TIE: +2 Handling +1 speed = +3. YT: +1 Handling +0 + yt_boost - yt_sot.
-    yt_mod = 1 + yt_boost - yt_sot
+    # Piloting check: success (TN 4) = keep highest; fail = keep lowest. Joker = auto-pass. TIE: Handling + speed adv. YT: Handling + yt_boost - yt_sot.
+    yt_mod = YT_HANDLING + yt_boost - yt_sot
     yt_succ = has_joker(yt_draw) or (yt_pilot + yt_mod >= 4)
-    t1_succ = has_joker(t1_draw) or (t1_pilot + 3 >= 4)
-    t2_succ = has_joker(t2_draw) or (t2_pilot + 3 >= 4)
-    t3_succ = has_joker(t3_draw) or (t3_pilot + 3 >= 4)
+    tie_mod = TIE_HANDLING + TIE_SPEED_ADV
+    t1_succ = has_joker(t1_draw) or (t1_pilot + tie_mod >= 4)
+    t2_succ = has_joker(t2_draw) or (t2_pilot + tie_mod >= 4)
+    t3_succ = has_joker(t3_draw) or (t3_pilot + tie_mod >= 4)
     yt_card = max(c[0] for c in yt_draw) if yt_succ else min(c[0] for c in yt_draw)
     t1_card = max(c[0] for c in t1_draw) if t1_succ else min(c[0] for c in t1_draw)
     t2_card = max(c[0] for c in t2_draw) if t2_succ else min(c[0] for c in t2_draw)
@@ -147,9 +166,9 @@ for rd in range(1, 6):
             # One turret = one target only
             tid = yt_target_tie - 1
             hit = (yt_shoot - 2 + ev_out) >= 4  # ev_out=0 (no outgoing penalty)
-            if hit and damages[0] >= 15:  # TIE Toughness 15
+            if hit and damages[0] > TIE_TOUGH:
                     tie_shaken[tid] = True
-                    if damages[0] >= 19: tie_hull[tid] += 1 + max(0, (damages[0]-19)//4)
+                    if damages[0] >= TIE_TOUGH + 4: tie_hull[tid] += 1 + max(0, (damages[0]-TIE_TOUGH-4)//4)
         else:
             tid = int(ship[1]) - 1
             adv = t1_adv if ship=='T1' else t2_adv if ship=='T2' else t3_adv
@@ -161,7 +180,7 @@ for rd in range(1, 6):
                     sh_before = yt_shields
                     yt_shields = max(0, yt_shields - dmg)
                     overflow = dmg - sh_before if dmg > sh_before else 0
-                    if overflow >= 20:  # YT Toughness 20; Shaken = lose all momentum
+                    if overflow > YT_TOUGH:
                         yt_shaken = True
     
     # Stay on Target: success = YT -2 momentum next round (cumulative: 2 successes = -4, 3 = -6). Negated if YT Evaded with raise. YT Shaken = lose all momentum.
@@ -171,7 +190,7 @@ for rd in range(1, 6):
         yt_sot = 0  # Shaken loses all momentum
     elif not ev_raise_rd:
         for m, r in zip([t1_man, t2_man, t3_man], sot_rolls):
-            if m == 'Stay on Target' and r + 3 >= yt_pilot + (1 + yt_boost - prev_yt_sot):
+            if m == 'Stay on Target' and r + tie_mod >= yt_pilot + (YT_HANDLING + yt_boost - prev_yt_sot):
                 yt_sot += 2  # cumulative per success
     if yt_man == 'I Can Hold It':
         yt_shaken = False  # I Can Hold It clears Shaken
@@ -186,29 +205,29 @@ for rd in range(1, 6):
     # Regen
     regen = 2 if elec >= 4 else 0
     if elec >= 8: regen = 4
-    yt_shields = min(40, yt_shields + regen)
+    yt_shields = min(YT_SHIELDS_MAX, yt_shields + regen)
 
 # Write scenario
 with open('Scenario_YT1300_vs_3TIEs.md', 'w', encoding='utf-8') as f:
-    f.write("""# Scenario: Three TIE Fighters vs YT-1300 Freighter
+    f.write(f"""# Scenario: Three TIE Fighters vs YT-1300 Freighter
 
 ## Setup
 
 **Location:** Asteroid belt near Ord Mantell. A YT-1300 freighter evades Imperial patrol and is intercepted by three TIE fighters.
 
-**Ships** (see ships.json: `millennium_falcon`, `tie_fighter`):
+**Ships** (see ships.json: `yt_1300`, `tie_fighter`):
 
-| Ship | Size | Handling | Top Speed | Toughness | Armor | Shields | Crew |
-|------|------|----------|-----------|-----------|-------|---------|------|
-| **YT-1300** | 8 | +1 | 650 | 20 (6) | 6 | 40 | Pilot, Co-pilot, Gunner, Engineer |
-| **TIE Fighter 1** | 6 | +2 | 800 | 15 (5) | 5 | — | Pilot, Gunner |
-| **TIE Fighter 2** | 6 | +2 | 800 | 15 (5) | 5 | — | Pilot, Gunner |
-| **TIE Fighter 3** | 6 | +2 | 800 | 15 (5) | 5 | — | Pilot, Gunner |
+| Ship | Size | Handling | Speed | Toughness | Armor | Hull | Shields | Crew |
+|------|------|----------|-------|-----------|-------|------|---------|------|
+| **YT-1300** | {YT["size"]} | {YT["handling"]:+d} | {YT["speed"]} | {YT["toughness"]} | {YT["armor"]} | {YT["hull"]} | {YT["shields"]} | {", ".join(YT["crew"])} |
+| **TIE Fighter 1** | {TIE["size"]} | {TIE["handling"]:+d} | {TIE["speed"]} | {TIE["toughness"]} | {TIE["armor"]} | {TIE["hull"]} | — | {", ".join(TIE["crew"])} |
+| **TIE Fighter 2** | {TIE["size"]} | {TIE["handling"]:+d} | {TIE["speed"]} | {TIE["toughness"]} | {TIE["armor"]} | {TIE["hull"]} | — | {", ".join(TIE["crew"])} |
+| **TIE Fighter 3** | {TIE["size"]} | {TIE["handling"]:+d} | {TIE["speed"]} | {TIE["toughness"]} | {TIE["armor"]} | {TIE["hull"]} | — | {", ".join(TIE["crew"])} |
 
 **Key modifiers:**
-- TIEs have speed advantage (+1 momentum vs YT-1300).
+- TIEs have speed advantage (+{TIE_SPEED_ADV} momentum vs YT-1300).
 - YT-1300 has turret; TIEs have fixed forward cannons.
-- YT-1300 has shields (40 max); regen 5% + 5%/raise. TIEs have none.
+- YT-1300 has shields ({YT_SHIELDS_MAX} max); regen 5% + 5%/raise. TIEs have none.
 - **One weapon system = one target per round** (quad turret fires at one ship only).
 - **Momentum** persists round to round. Lose all: Distraction, becoming Shaken. **Stay on Target** (opposed Piloting): target -2 momentum per success (cumulative; 2 successes = -4, 3 = -6); each side adds its momentum to its roll.
 - **Joker:** Acts first, Pilot auto-passes initiative test, +2 to all crew rolls that round, short range.
@@ -238,8 +257,8 @@ with open('Scenario_YT1300_vs_3TIEs.md', 'w', encoding='utf-8') as f:
         f.write(f"- TIE 2: {card_str(r['t2_draw'][0][0], r['t2_draw'][0][1])}, {card_str(r['t2_draw'][1][0], r['t2_draw'][1][1])}{c2}{c2j}\n")
         f.write(f"- TIE 3: {card_str(r['t3_draw'][0][0], r['t3_draw'][0][1])}, {card_str(r['t3_draw'][1][0], r['t3_draw'][1][1])}{c3}{c3j}\n\n")
         f.write(f"### Piloting\n")
-        yt_mod = 1 + r.get('yt_boost', 0) - r['yt_sot']  # +1 Handling, 0 speed, +Boost momentum, -Stay on Target
-        mod_parts = ['1 Handling']
+        yt_mod = YT_HANDLING + r.get('yt_boost', 0) - r['yt_sot']
+        mod_parts = [f'{YT_HANDLING:+d} Handling'] if YT_HANDLING != 0 else ['0 Handling']
         if r.get('yt_boost', 0): mod_parts.append(f"+{r['yt_boost']} Boost")
         if r['yt_sot']: mod_parts.append(f"-{r['yt_sot']} Stay on Target")
         mod_str = ' '.join(mod_parts) + f" = {yt_mod}"
@@ -251,12 +270,13 @@ with open('Scenario_YT1300_vs_3TIEs.md', 'w', encoding='utf-8') as f:
             if r[joker_key]:
                 f.write(f"- **TIE {tie_id}** Joker — auto-passes (initiative test). Keeps Joker.\n")
             else:
-                f.write(f"- **TIE {tie_id}** Pilot: d6 + 2 + 1. Rolls {r[pilot_key]} + 3 = {r[pilot_key]+3} — success. Keeps {r[card_key]}.\n")
+                succ = r[pilot_key] + tie_mod >= 4
+                f.write(f"- **TIE {tie_id}** Pilot: d6 + {tie_mod}. Rolls {r[pilot_key]} + {tie_mod} = {r[pilot_key]+tie_mod} — {'success' if succ else 'fail'}. Keeps {r[card_key]}.\n")
         f.write("\n")
         ord_str = ' → '.join([f"{s[0]} ({s[1]})" for s in r['order']])
         f.write(f"**Order:** {ord_str}\n\n")
         f.write(f"### Maneuver\n")
-        ev_succ = (r['yt_evade'] - 3 >= 4) if r.get('yt_man') == 'Evade' else False
+        ev_succ = (r['yt_evade'] - 3 >= 4) if r.get('yt_man') == 'Evade' else False  # Evade: -3 for 3 opponents
         ev_raise = (r['yt_evade'] - 3 >= 8) if r.get('yt_man') == 'Evade' else False
         ev_desc = 'No effect.'
         if ev_succ:
@@ -267,7 +287,7 @@ with open('Scenario_YT1300_vs_3TIEs.md', 'w', encoding='utf-8') as f:
             f.write(f"- YT-1300: **I Can Hold It** (Shaken — clears Shaken).\n")
         elif r.get('yt_man') == 'Boost':
             br = r.get('yt_boost_roll')
-            bmod = 1 + r.get('yt_boost', 0) - r['yt_sot']
+            bmod = YT_HANDLING + r.get('yt_boost', 0) - r['yt_sot']
             bsucc = br is not None and (br + bmod >= 4)
             f.write(f"- YT-1300: **Boost** (top initiative) — Piloting check (TN 4). Roll {br} + {bmod} = {br+bmod if br is not None else '?'} — {'success' if bsucc else 'fail'}. {'+2 momentum.' if bsucc else 'No effect.'}\n")
         else:
@@ -277,10 +297,10 @@ with open('Scenario_YT1300_vs_3TIEs.md', 'w', encoding='utf-8') as f:
             if man == 'Stay on Target':
                 immune = r.get('ev_raise', False)  # YT Evade raise = immune to Stay on Target
                 if immune: return f"- TIE {tie_id}: **Stay on Target** vs YT-1300 — negated (YT Evaded with raise).\n"
-                yt_sot_tn = r['yt_pilot'] + (1 + r.get('yt_boost', 0) - r['yt_sot'])
-                succ = sot_r + 3 >= yt_sot_tn
-                return f"- TIE {tie_id}: **Stay on Target** (Pilot d6) vs YT-1300 — opposed Piloting. TIE {tie_id}: {sot_r}+3 vs YT: {yt_sot_tn} — {'success' if succ else 'fail'}. {'YT-1300 -2 momentum.' if succ else 'No effect.'}\n"
-            return f"- TIE {tie_id}: **Boost** (Pilot d6) — Piloting TN 4. Roll {sot_r}+3 = {sot_r+3} — success. +2 momentum.\n"
+                yt_sot_tn = r['yt_pilot'] + (YT_HANDLING + r.get('yt_boost', 0) - r['yt_sot'])
+                succ = sot_r + tie_mod >= yt_sot_tn
+                return f"- TIE {tie_id}: **Stay on Target** (Pilot d6) vs YT-1300 — opposed Piloting. TIE {tie_id}: {sot_r}+{tie_mod} vs YT: {yt_sot_tn} — {'success' if succ else 'fail'}. {'YT-1300 -2 momentum.' if succ else 'No effect.'}\n"
+            return f"- TIE {tie_id}: **Boost** (Pilot d6) — Piloting TN 4. Roll {sot_r}+{tie_mod} = {sot_r+tie_mod} — success. +2 momentum.\n"
         f.write(man_line(1, r['t1_man'], r['sot_rolls'][0]))
         f.write(man_line(2, r['t2_man'], r['sot_rolls'][1]))
         f.write(man_line(3, r['t3_man'], r['sot_rolls'][2]))
@@ -290,15 +310,13 @@ with open('Scenario_YT1300_vs_3TIEs.md', 'w', encoding='utf-8') as f:
         ev_out = 0  # No outgoing penalty (new Evade rules)
         ev_in = -2 if ev_succ else 0
         shields = r['yt_shields']  # track as we apply damage in initiative order
-        TIE_TOUGH = 15
-        TIE_HULL_MAX = 3
-        YT_TOUGH = 20
 
         def tie_damage_desc(dmg, tid):
-            if dmg < TIE_TOUGH: return f" vs Toughness {TIE_TOUGH}: no effect (glancing hit)."
-            shaken = " **Shaken.**" if dmg >= TIE_TOUGH else ""
-            if dmg < 19: return f" vs Toughness {TIE_TOUGH}:{shaken} Pilot must I Can Hold It next round."
-            hull = 1 + max(0, (dmg - 19) // 4)
+            if dmg <= TIE_TOUGH: return f" vs Toughness {TIE_TOUGH}: no effect (glancing hit)."
+            shaken = " **Shaken.**" if dmg > TIE_TOUGH else ""
+            hull_thresh = TIE_TOUGH + 4
+            if dmg < hull_thresh: return f" vs Toughness {TIE_TOUGH}:{shaken} Pilot must I Can Hold It next round."
+            hull = 1 + max(0, (dmg - hull_thresh) // 4)
             hull = min(hull, TIE_HULL_MAX)
             if hull == 1: status = "**Damaged** (−1 all checks)"
             elif hull == 2: status = "**Crippled** (−2 all checks)"
