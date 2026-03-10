@@ -365,7 +365,7 @@ with open('Scenario_YT1300_vs_3TIEs.md', 'w', encoding='utf-8') as f:
                 if cr is not None:
                     if cr == 2: eff = "Disaster (Pilot -4; fail = major system failure)"
                     elif 3 <= cr <= 5: eff = "Distraction (ship loses all momentum)"
-                    elif 6 <= cr <= 8: eff = "Flight deck ionization (Pilot takes 2 Strain)"
+                    elif 6 <= cr <= 8: eff = "Flight deck ionization (10 stun damage to a random crew member)"
                     elif 9 <= cr <= 11: eff = "Complication (Pilot -2; fail = subsystem offline)"
                     else: eff = "Major (Pilot -4; fail = subsystem offline)"
                     f.write(f"- **{name}** drew Club: 2d6 = {cr}. {eff}\n")

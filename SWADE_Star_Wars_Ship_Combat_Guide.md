@@ -382,7 +382,7 @@ When a ship draws a Club for initiative, roll 2d6 on the table below. **Pilot ro
 | ---- | ---------------------------------------------------------------------------------------------- |
 | 2    | **Disaster:** Piloting -4; fail = **major system failure** (roll 1d6 on Ship Systems Chart)    |
 | 3-5  | **Distraction:** Ship loses all momentum                                                       |
-| 6-8  | **Flight deck ionization:** Pilot takes 2 Strain                                               |
+| 6-8  | **Flight deck ionization:** 10 stun damage to a random crew member                             |
 | 9-11 | **Complication:** Pilot roll -2; fail = **subsystem offline** (roll 1d6 on Ship Systems Chart) |
 | 12   | **Major:** Pilot roll -4; fail = **subsystem offline** (roll 1d6 on Ship Systems Chart)        |
 
