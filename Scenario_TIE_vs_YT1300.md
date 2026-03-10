@@ -13,7 +13,7 @@
 | **TIE Fighter 2** | 6 | +2 | 800 | 20 (5) | 5 | — | Pilot, Gunner |
 
 **Key modifiers:**
-- TIEs have speed advantage (+2 to Piloting vs YT-1300).
+- TIEs have speed advantage (+1 momentum vs YT-1300).
 - YT-1300 has turret; TIEs have fixed forward cannons.
 - YT-1300 has shields (40 max); regen requires Electronics check in Systems phase (5% + 5%/raise). TIEs have none.
 - Ship stats and weapons align with ships.json (TIE: 2d10+2 dual lasers; YT-1300 modified: quad turret 2d10+2).
@@ -24,7 +24,7 @@
 
 ### Initiative
 All ships draw 2 cards. Results:
-- YT-1300: 9♥, 4♦ — keeps 9 after Piloting check (success, +1 Handling, -2 speed disadvantage)
+- YT-1300: 9♥, 4♦ — keeps 9 after Piloting check (success, +1 Handling, -1 speed disadvantage)
 - TIE 1: Queen♣, 5♠ — **Club drawn** (complication). Piloting success keeps Queen. TIE 1 has advantage.
 - TIE 2: 7♦, 3♠ — keeps 7
 
@@ -38,14 +38,14 @@ All ships draw 2 cards. Results:
 - YT-1300 Co-pilot Supports Pilot (Notice): success → +1 to Pilot's Piloting.
 
 ### Piloting
-- YT-1300 Pilot: d8 Piloting + 1 Handling - 2 (slower) + 1 (Support) = TN 4. Rolls 7 — success. Keeps 9.
-- TIE 1 Pilot: d8 Piloting + 2 Handling + 2 (speed). Rolls 6 — success. Keeps Queen.
-- TIE 2 Pilot: d8 Piloting + 2 Handling + 2 (speed). Rolls 5 — success. Keeps 7.
+- YT-1300 Pilot: d8 Piloting + 1 Handling - 1 (slower) + 1 (Support) = TN 4. Rolls 7 — success. Keeps 9.
+- TIE 1 Pilot: d8 Piloting + 2 Handling + 1 (speed). Rolls 6 — success. Keeps Queen.
+- TIE 2 Pilot: d8 Piloting + 2 Handling + 1 (speed). Rolls 5 — success. Keeps 7.
 
 ### Maneuver
-- TIE 1: **Hold Steady** — maintains position on YT-1300's tail.
+- TIE 1: **I Can Hold It** — maintains position on YT-1300's tail.
 - YT-1300: **Evade** — Piloting check (TN 4), -2 (2 opponents). Roll 9 - 2 = 7 — success. Their incoming targeting -2, their outgoing targeting -2.
-- TIE 2: **Stay on Target** vs YT-1300. Opposed Piloting: TIE 2 wins. YT-1300 suffers -2 Piloting next round.
+- TIE 2: **Stay on Target** vs YT-1300. Opposed Piloting: TIE 2 wins. YT-1300 suffers -2 momentum.
 
 ### Gunnery
 - **TIE 1** (advantage, short range): Fires dual lasers at YT-1300. TN 4. Roll 9 - 2 (target Evading) = 7 vs TN 4. **Hit.** Damage 2d10+2 = 14. Strips 14 from YT-1300 shields. **YT-1300 shields: 26.**
@@ -71,9 +71,9 @@ All ships draw 2 cards. Results:
 - TIE 2: 8♣, 3♥ — **Club drawn.**
 
 ### Piloting
-- **YT-1300** Pilot: d8 + 1 Handling - 2 (speed) - 2 (Stay on Target from TIE 2 last round) = TN 4. Rolls 9 - 3 = 6 — success. Keeps Jack.
-- **TIE 1** Pilot: d8 + 2 Handling + 2 (speed). Success. Keeps 10.
-- **TIE 2** Pilot: d8 + 2 Handling + 2 (speed). Success. Keeps 8.
+- **YT-1300** Pilot: d8 + 1 Handling - 1 (speed) - 2 momentum (Stay on Target from TIE 2 last round) = TN 4. Rolls 9 - 2 = 6 — success. Keeps Jack.
+- **TIE 1** Pilot: d8 + 2 Handling + 1 (speed). Success. Keeps 10.
+- **TIE 2** Pilot: d8 + 2 Handling + 1 (speed). Success. Keeps 8.
 
 **Final cards:**
 - YT-1300: Jack (medium, -2)
@@ -85,13 +85,13 @@ All ships draw 2 cards. Results:
 **Advantage:** YT-1300 has advantage over both TIEs this round.
 
 ### Maneuver
-- YT-1300: **Hold Steady** — cancels Evade (incoming targeting and outgoing targeting penalties).
-- TIE 1: **Hold Steady** — maintains pursuit (not Shaken yet; becomes Shaken in Gunnery).
+- YT-1300: **I Can Hold It** — steady flight.
+- TIE 1: **I Can Hold It** — maintains pursuit (not Shaken yet; becomes Shaken in Gunnery).
 - TIE 2: **Evade** — Piloting check (TN 4), -1 (1 opponent). Roll 6 - 1 = 5 — success. Their incoming targeting -2, their outgoing targeting -2.
 
 ### Gunnery
 - **YT-1300** (advantage): Quad turret at TIE 1, medium range (-2). TN 4. Roll 9 - 2 = 7 vs TN 4. **Hit.** Damage 2d10+2 = 20. TIE 1 has no shields. vs Toughness 20: **TIE 1 Shaken.**
-- **TIE 1** (Shaken): Fires at YT-1300. TN 4. YT-1300 did Hold Steady (no Evade). Roll 4 - 1 (sensor glitch) = 3 vs TN 4. **Miss.**
+- **TIE 1** (Shaken): Fires at YT-1300. TN 4. YT-1300 used I Can Hold It (no Evade). Roll 4 - 1 (sensor glitch) = 3 vs TN 4. **Miss.**
 - **TIE 2** (no advantage): Cannot fire (no turret).
 
 ### Systems
@@ -121,7 +121,7 @@ All ships draw 2 cards. Results:
 ### Maneuver
 - YT-1300: **Evade** — Piloting check (TN 4), -2 (2 opponents). Roll 8 - 2 = 6 — success. Their incoming targeting -2, their outgoing targeting -2.
 - TIE 2: **Stay on Target** vs YT-1300 — success. YT-1300 -2 Piloting next round.
-- TIE 1: **Hold Steady** — clears Shaken (required; cannot take other maneuver).
+- TIE 1: **I Can Hold It** — clears Shaken (required; cannot take other maneuver).
 
 ### Gunnery
 - **YT-1300** (advantage over TIE 1, medium range): Quad turret at TIE 1. TN 4. Roll 8 - 2 (range) - 2 (Evade outgoing targeting) = 4 vs TN 4. **Hit.** Damage 2d10+2 = 24. 24 exceeds Toughness 20 by 4 = **1 hull damage** (and Shaken). TIE 1 hull-damaged, -1 to all rolls.
@@ -148,9 +148,9 @@ All ships draw 2 cards. Results:
 **Advantage:** TIE 2 (Joker) has advantage over all.
 
 ### Maneuver
-- TIE 2: **Hold Steady** — keeps position.
+- TIE 2: **I Can Hold It** — keeps position.
 - YT-1300: **Evade** — Piloting check (TN 4), -2 (2 opponents). Roll 7 - 2 = 5 — success. Their incoming targeting -2, their outgoing targeting -2 (effect carries into Gunnery).
-- TIE 1: **Hold Steady** — clears Shaken (required; cannot take other maneuver).
+- TIE 1: **I Can Hold It** — clears Shaken (required; cannot take other maneuver).
 
 ### Gunnery
 - **TIE 2** (Joker, +2, short, target Evading -2): TN 4. Roll 9 + 2 (Joker) - 2 (target Evading) = 9 vs TN 4. **Hit with raise** (+1d6 damage). Damage 2d10+2+1d6 = 18+4 = 22. Strips 18 shields. **YT-1300 shields: 0** (depleted). Overflow 4 vs Toughness 25 — no effect (4 < 25).
@@ -173,18 +173,18 @@ All ships draw 2 cards. Results:
 - TIE 2: 9♠, 6♣ — **Club**
 
 ### Piloting
-- **YT-1300** Pilot: d8 + 1 Handling - 2 (speed) - 2 (Stay on Target from TIE 2 last round) = -3. TN 4. Rolls 8 - 3 = 5 — success. Keeps 8.
-- **TIE 1** Pilot: d8 + 2 Handling + 2 (speed) - 2 (Crippled) = +2. TN 4. Rolls 5 + 2 = 7 — success. Keeps 5.
-- **TIE 2** Pilot: d8 + 2 Handling + 2 (speed). TN 4. Rolls 6 — success. Keeps 9.
+- **YT-1300** Pilot: d8 + 1 Handling - 1 (speed) - 2 momentum (Stay on Target from TIE 2 last round) = -2. TN 4. Rolls 8 - 2 = 6 — success. Keeps 8.
+- **TIE 1** Pilot: d8 + 2 Handling + 1 (speed) - 2 (Crippled) = +1. TN 4. Rolls 5 + 1 = 6 — success. Keeps 5.
+- **TIE 2** Pilot: d8 + 2 Handling + 1 (speed). TN 4. Rolls 6 — success. Keeps 9.
 
 **Order:** TIE 2 (9) → YT-1300 (8) → TIE 1 (5)
 
 **Advantage:** TIE 2 over both. YT-1300 over TIE 1.
 
 ### Maneuver
-- TIE 2: **Hold Steady**
+- TIE 2: **I Can Hold It**
 - YT-1300: **Loop** — Piloting check (See guide). Modifier -(Size − Handling) = -(8 − 1) = -7. Roll 11 - 7 = 4 — success (d8 aced: 8+3). Reverses advantage with TIE 2 (who had higher card) — now on TIE 2's tail. Turret can bear.
-- TIE 1: **Hold Steady** — too damaged to maneuver aggressively.
+- TIE 1: **I Can Hold It** — too damaged to maneuver aggressively.
 
 ### Gunnery
 - **TIE 2** (advantage): Cannot fire — after YT-1300's Loop, the freighter is on TIE 2's six; fixed forward cannons cannot bear on a target behind.

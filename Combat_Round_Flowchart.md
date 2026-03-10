@@ -2,6 +2,8 @@
 
 A quick reference for players showing what to do in each phase. See the full combat guide for details.
 
+**Momentum:** Each ship starts at 0. **Persists round to round.** Maneuvers add/subtract momentum. Lose all: Distraction, or becoming Shaken. In **opposed Piloting rolls** (e.g., Stay on Target), each side adds its momentum to its roll. Also adds to Piloting check (TN 4) for initiative card choice.
+
 ### Phase Details
 
 **1. Initiative** — *Who: All ships*
@@ -10,7 +12,7 @@ A quick reference for players showing what to do in each phase. See the full com
 - Note Clubs — they trigger complications in Phase 7
 - Higher card = acts first and has advantage over lower cards
 - Range from card: 2 = none; 3–7 = long (-4); 8–Jack = medium (-2); Queen–Joker = short (0)
-- **Joker:** Acts first, +2 to all crew rolls that round, counts as short range
+- **Joker:** Acts first, Pilot auto-passes initiative test, +2 to all crew rolls that round, counts as short range
 
 **2. Support** — *Who: Co-pilot, Commander, Engineer, Systems Operator*
 
@@ -23,25 +25,26 @@ A quick reference for players showing what to do in each phase. See the full com
 
 **3. Piloting** — *Who: Pilot only*
 
-- Piloting check TN 4 (mods: Handling, speed advantage, hull, Support bonuses)
+- Piloting check TN 4 (mods: Handling, momentum, hull, Support bonuses)
+- **Joker:** Pilot auto-passes (see Initiative)
 - Success = keep highest of 2 cards. Raise = draw another, pick best. Fail = must take lowest
-- Modifiers: +2 if faster than opponent; +4 if 2× faster
+- Speed advantage: +1 momentum if faster than majority of opponents; +2 if 2× faster
 
 **4. Maneuver** — *Who: Pilot only*
 
-- Choose one: Evade | Stay on Target | Hold Steady | Boost | Loop
-- Evade: Piloting TN 4, -1 per opposing ship; success = -2 incoming targeting, -2 outgoing targeting; raise = -1 outgoing targeting
-- Stay on Target: Opposed Piloting vs target; success = target -2 Piloting next round
-- Hold Steady: Cancels Evade (incoming and outgoing penalties); +1 Piloting next round. Shaken ship: must declare Hold Steady (clears Shaken); may still fire.
-- Boost: Piloting TN 4; success = +2 Piloting next round; raise = +2 and draw extra card
-- Loop: Piloting (See note); success = reverse advantage with one ship this round + +1 Piloting next round
+- Choose one: Evade | Stay on Target | I Can Hold It | Boost | Loop
+- Evade: Piloting TN 4, -1 per opposing ship; success = -2 to opponents targeting this ship; raise = negates Stay on Target maneuvers this round
+- Stay on Target: Opposed Piloting vs target; success = target -2 momentum; raise = you +1 momentum
+- I Can Hold It: Steady flight. Shaken ship: must declare I Can Hold It (clears Shaken); may still fire.
+- Boost: Piloting TN 4; success = +2 momentum; raise = draw 1 extra card (pick best of 3). Crit fail = -2 momentum
+- Loop: **Opposed Piloting** vs one ship with higher card; both add -(Size - Handling) and momentum. Success = reverse advantage + +1 momentum. Crit fail = -2 momentum
 
 **5. Gunnery** — *Who: Gunners (act in initiative order)*
 
 - Systems Operator declares shield facing (if directional) — before firing
 - With advantage: Fire all weapons that bear on target(s); each weapon system may target a different enemy
 - Without advantage: Turret weapons only, -2 to Shooting
-- To hit: TN 4. Modifiers stack (e.g., target Evading -2 + medium -2 = -4; or your Evade outgoing targeting -2 or -1 when Evading)
+- To hit: TN 4. Modifiers stack (e.g., target Evading -2 + medium -2 = -4)
 - Snapfire (torpedoes): -2 unless target at short range
 - Damage to shields first; excess to hull (Damaged = -1, Crippled = -2, max = destroyed)
 
@@ -70,7 +73,7 @@ A quick reference for players showing what to do in each phase. See the full com
 | 1 Initiative    | — (observe cards; declare speed for modifiers)                                        |
 | 2 Support       | —                                                                                     |
 | 3 Piloting      | **Piloting check** — keep high/low card based on result                               |
-| 4 Maneuver      | **Choose maneuver** — Evade, Stay on Target, Hold Steady, Boost, or Loop (modifiers apply next round) |
+| 4 Maneuver      | **Choose maneuver** — Evade, Stay on Target, I Can Hold It, Boost, or Loop (momentum applies next round) |
 | 5 Gunnery       | — (unless also Gunner)                                                                |
 | 6 Systems       | —                                                                                     |
 | 7 Complications | —                                                                                     |
@@ -153,9 +156,10 @@ A quick reference for players showing what to do in each phase. See the full com
 | Roll | Effect                                                               |
 | ---- | -------------------------------------------------------------------- |
 | 2    | Disaster: Piloting -4; fail = **major system failure** (roll 1d6)    |
-| 3–7  | Major: Pilot roll -4; fail = **subsystem offline** (roll 1d6)        |
-| 8–Q  | Complication: Pilot roll -2; fail = **subsystem offline** (roll 1d6) |
-| A    | Distraction: -2 Shooting this round                                  |
+| 3–5  | Distraction: Ship loses all momentum                               |
+| 6-8  | Flight deck ionization: Pilot takes 2 Strain                        |
+| 9-11 | Complication: Pilot roll -2; fail = **subsystem offline** (roll 1d6) |
+| 12   | Major: Pilot roll -4; fail = **subsystem offline** (roll 1d6)        |
 
 
 **Ship Systems Chart (1d6)** — See full combat guide for details.
