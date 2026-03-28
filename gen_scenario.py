@@ -12,13 +12,29 @@ TIE = ships_by_id["tie_fighter"]
 YT_SHIELDS_MAX = YT["shields"]
 YT_TOUGH = YT["toughness"]
 YT_HANDLING = YT["handling"]
-YT_SPEED = YT["speed"]
 TIE_TOUGH = TIE["toughness"]
 TIE_HULL_MAX = TIE["hull"]
 TIE_HANDLING = TIE["handling"]
-TIE_SPEED = TIE["speed"]
-# Speed advantage: faster than majority gets +1 momentum
-TIE_SPEED_ADV = 1 if TIE_SPEED > YT_SPEED else 0
+
+
+def handling_momentum_bonus(your_handling, opponent_handlings):
+    """+0, +1, or +2 momentum: beat strict majority on Handling; +2 if also your Handling >= max(opponents) + 3."""
+    if not opponent_handlings:
+        return 0
+    n = len(opponent_handlings)
+    beat = sum(1 for h in opponent_handlings if your_handling > h)
+    if beat <= n // 2:
+        return 0
+    mmax = max(opponent_handlings)
+    if your_handling >= mmax + 3:
+        return 2
+    return 1
+
+
+# 3 TIEs vs 1 YT: per-ship handling advantage vs opponents
+YT_OPP_HANDLING = [TIE_HANDLING, TIE_HANDLING, TIE_HANDLING]
+YT_HANDLING_MOM = handling_momentum_bonus(YT_HANDLING, YT_OPP_HANDLING)
+TIE_HANDLING_MOM = handling_momentum_bonus(TIE_HANDLING, [YT_HANDLING])
 
 def d(n):
     r = random.randint(1, n)
@@ -26,7 +42,7 @@ def d(n):
         return r + d(n)
     return r
 
-JOKER_VAL = 15  # Joker beats all; Pilot auto-passes initiative test
+JOKER_VAL = 15  # Joker beats all non-jokers for initiative order
 
 def draw(n):
     """Draw n initiative cards. Returns [(value, suit), ...] sorted high to low. Suit: s=spade, h=heart, d=diamond, c=club, j=joker."""
@@ -48,13 +64,26 @@ def card_str(val, suit):
 def _suit_char(s):
     return '♠' if s=='s' else '♥' if s=='h' else '♦' if s=='d' else '♣' if s=='c' else '' if s=='j' else s
 
-def has_club(drawn_cards):
-    """Club = suit 'c'. Complications trigger when a Club is drawn for initiative."""
-    return any(s == 'c' for _, s in drawn_cards)
-
 def has_joker(drawn_cards):
-    """Joker = value 15. Pilot auto-passes initiative test."""
+    """Joker = value 15."""
     return any(v == JOKER_VAL for v, _ in drawn_cards)
+
+
+def complication_roll():
+    return random.randint(1, 6) + random.randint(1, 6)
+
+
+def complication_text(cr):
+    if cr == 2:
+        return "Disaster (Pilot -4; fail = major system failure)"
+    if 3 <= cr <= 5:
+        return "Distraction (ship loses all momentum)"
+    if 6 <= cr <= 8:
+        return "Flight deck ionization (10 stun damage to a random crew member)"
+    if 9 <= cr <= 11:
+        return "Complication (Pilot -2; fail = subsystem offline)"
+    return "Major (Pilot -4; fail = subsystem offline)"
+
 
 # Simulate 5 rounds with full state
 yt_shields = YT_SHIELDS_MAX
@@ -72,32 +101,23 @@ def has_advantage(attacker_card, target_card, attacker='TIE'):
     return attacker_card > target_card
 
 for rd in range(1, 6):
-    # Initiative draw - cards are (value, suit); club suit 'c' triggers complications
-    yt_draw = draw(2)
-    t1_draw, t2_draw, t3_draw = draw(2), draw(2), draw(2)
+    # Initiative: one card each (no Piloting roll). Boost raise can add a card same round during Maneuvers.
+    yt_draw = list(draw(1))
+    t1_draw = list(draw(1))
+    t2_draw = list(draw(1))
+    t3_draw = list(draw(1))
+
+    yt_card = yt_draw[0][0]
+    t1_card = t1_draw[0][0]
+    t2_card = t2_draw[0][0]
+    t3_card = t3_draw[0][0]
+
+    yt_mod = YT_HANDLING + yt_boost - yt_sot + YT_HANDLING_MOM
+    tie_mod = TIE_HANDLING + TIE_HANDLING_MOM
+    # Opposed Piloting defense for Stay on Target (maneuver phase; Wild Card vs d6)
+    yt_sot_def = max(d(10), d(6))
     
-    yt_club = has_club(yt_draw)
-    t1_club = has_club(t1_draw)
-    t2_club = has_club(t2_draw)
-    t3_club = has_club(t3_draw)
-    
-    # Piloting - YT crew d10 + wild d6 (aces); TIE crew d6. YT: +1 Handling +0 speed +yt_boost -yt_sot; TIEs: +2 Handling +1 speed
-    yt_pilot = max(d(10), d(6))  # Wild Card: skill die and wild die, take best
-    t1_pilot, t2_pilot, t3_pilot = d(6), d(6), d(6)
-    
-    # Piloting check: success (TN 4) = keep highest; fail = keep lowest. Joker = auto-pass. TIE: Handling + speed adv. YT: Handling + yt_boost - yt_sot.
-    yt_mod = YT_HANDLING + yt_boost - yt_sot
-    yt_succ = has_joker(yt_draw) or (yt_pilot + yt_mod >= 4)
-    tie_mod = TIE_HANDLING + TIE_SPEED_ADV
-    t1_succ = has_joker(t1_draw) or (t1_pilot + tie_mod >= 4)
-    t2_succ = has_joker(t2_draw) or (t2_pilot + tie_mod >= 4)
-    t3_succ = has_joker(t3_draw) or (t3_pilot + tie_mod >= 4)
-    yt_card = max(c[0] for c in yt_draw) if yt_succ else min(c[0] for c in yt_draw)
-    t1_card = max(c[0] for c in t1_draw) if t1_succ else min(c[0] for c in t1_draw)
-    t2_card = max(c[0] for c in t2_draw) if t2_succ else min(c[0] for c in t2_draw)
-    t3_card = max(c[0] for c in t3_draw) if t3_succ else min(c[0] for c in t3_draw)
-    
-    # Build order
+    # Build order (initial; Boost raise may update YT card and order before Gunnery)
     order = sorted([('YT',yt_card),('T1',t1_card),('T2',t2_card),('T3',t3_card)], key=lambda x:-x[1])
     
     # TIE maneuvers (I Can Hold It if Shaken, else random)
@@ -112,10 +132,19 @@ for rd in range(1, 6):
     # YT-1300 has ONE quad turret = ONE weapon system = ONE target per round (guide: each weapon system can target a different enemy)
     yt_evade = max(d(10), d(6))   # Wild Card (Evade Piloting check)
     yt_boost_roll = max(d(10), d(6)) if yt_man == 'Boost' else None  # Boost Piloting check
+    yt_boost_raise = False
+    yt_boost_chosen = None  # (value, suit) Pilot chose for initiative after Boost raise
+    if yt_man == 'Boost' and yt_boost_roll is not None and (yt_boost_roll + yt_mod) >= 8:
+        yt_boost_raise = True
+        extra = draw(1)[0]
+        opts = yt_draw + [extra]
+        chosen = max(opts, key=lambda c: c[0])
+        yt_boost_chosen = chosen
+        yt_card = chosen[0]
+        yt_draw = sorted(opts, key=lambda c: -c[0])
+        order = sorted([('YT', yt_card), ('T1', t1_card), ('T2', t2_card), ('T3', t3_card)], key=lambda x: -x[1])
     yt_target_tie = random.randint(1, 3)  # which TIE (1-3) the turret targets this round
     yt_shoot = max(d(10), d(6))  # Wild Card
-    # Complications: when Club drawn, roll 2d6 (standard, no explosion)
-    comp_rolls = [(random.randint(1,6)+random.randint(1,6)) if club else None for club in [yt_club, t1_club, t2_club, t3_club]]
     t1_shoot, t2_shoot, t3_shoot = d(6), d(6), d(6)  # TIE Gunners d6
     # damage[0] = YT->target TIE; damage[1,2,3] = T1,T2,T3 -> YT
     if yt_man == 'I Can Hold It':
@@ -140,32 +169,20 @@ for rd in range(1, 6):
     t1_adv = has_advantage(t1_card, yt_card)
     t2_adv = has_advantage(t2_card, yt_card)
     t3_adv = has_advantage(t3_card, yt_card)
-    
-    rounds_data.append({
-        'rd': rd, 'yt_shields': yt_shields, 'yt_sot': yt_sot, 'yt_boost': yt_boost,
-        'yt_joker': has_joker(yt_draw), 't1_joker': has_joker(t1_draw), 't2_joker': has_joker(t2_draw), 't3_joker': has_joker(t3_draw),
-        'yt_draw': yt_draw, 't1_draw': t1_draw, 't2_draw': t2_draw, 't3_draw': t3_draw,
-        'yt_club': yt_club, 't1_club': t1_club, 't2_club': t2_club, 't3_club': t3_club,
-        'yt_pilot': yt_pilot, 't1_pilot': t1_pilot, 't2_pilot': t2_pilot, 't3_pilot': t3_pilot,
-        'yt_card': yt_card, 't1_card': t1_card, 't2_card': t2_card, 't3_card': t3_card,
-        'order': order, 'yt_shoot': yt_shoot, 'yt_target_tie': yt_target_tie,
-        't1_shoot': t1_shoot, 't2_shoot': t2_shoot, 't3_shoot': t3_shoot,
-        'damages': damages, 'raise_bonus': raise_bonus, 'elec': elec, 'yt_evade': yt_evade, 'ev_raise': ev_raise_rd, 'comp_rolls': comp_rolls,
-        't1_man': t1_man, 't2_man': t2_man, 't3_man': t3_man, 'yt_man': yt_man, 'sot_rolls': sot_rolls,
-        'yt_boost_roll': yt_boost_roll, 'yt_top': yt_top,
-        't1_adv': t1_adv, 't2_adv': t2_adv, 't3_adv': t3_adv,
-        'tie_hull': tie_hull.copy(), 'tie_shaken': tie_shaken.copy()
-    })
-    
-    # Apply damage in initiative order
+
+    yt_shields_round_start = yt_shields
+    comp_events = []
+
+    # Apply damage in initiative order; hull damage triggers a Complication roll (2d6) for the ship that was hit
     ev_succ = yt_evade - 3 >= 4
-    ev_out = -2 if ev_succ else 0
     ev_in = -2 if ev_succ else 0
     for ship, _ in order:
         if ship == 'YT':
             # One turret = one target only
             tid = yt_target_tie - 1
-            hit = (yt_shoot - 2 + ev_out) >= 4  # ev_out=0 (no outgoing penalty)
+            hit = (yt_shoot - 2) >= 4  # no outgoing penalty (matches Gunnery write-up)
+            if hit:
+                comp_events.append({'ship': f'TIE {tid + 1}', 'roll': complication_roll()})
             if hit and damages[0] > TIE_TOUGH:
                     tie_shaken[tid] = True
                     if damages[0] >= TIE_TOUGH + 4: tie_hull[tid] += 1 + max(0, (damages[0]-TIE_TOUGH-4)//4)
@@ -177,21 +194,40 @@ for rd in range(1, 6):
                 hit = (shoot + ev_in) >= 4
                 dmg = damages[1 + tid]
                 if hit and dmg > 0:
+                    comp_events.append({'ship': 'YT-1300', 'roll': complication_roll()})
                     sh_before = yt_shields
                     yt_shields = max(0, yt_shields - dmg)
                     overflow = dmg - sh_before if dmg > sh_before else 0
                     if overflow > YT_TOUGH:
                         yt_shaken = True
-    
-    # Stay on Target: success = YT -2 momentum next round (cumulative: 2 successes = -4, 3 = -6). Negated if YT Evaded with raise. YT Shaken = lose all momentum.
+
+    rounds_data.append({
+        'rd': rd, 'yt_shields': yt_shields_round_start, 'yt_sot': yt_sot, 'yt_boost': yt_boost,
+        'yt_joker': has_joker(yt_draw), 't1_joker': has_joker(t1_draw), 't2_joker': has_joker(t2_draw), 't3_joker': has_joker(t3_draw),
+        'yt_draw': yt_draw, 't1_draw': t1_draw, 't2_draw': t2_draw, 't3_draw': t3_draw,
+        'yt_sot_def': yt_sot_def,
+        'yt_boost_raise': yt_boost_raise,
+        'yt_boost_chosen': yt_boost_chosen,
+        'yt_card': yt_card, 't1_card': t1_card, 't2_card': t2_card, 't3_card': t3_card,
+        'order': order, 'yt_shoot': yt_shoot, 'yt_target_tie': yt_target_tie,
+        't1_shoot': t1_shoot, 't2_shoot': t2_shoot, 't3_shoot': t3_shoot,
+        'damages': damages, 'raise_bonus': raise_bonus, 'elec': elec, 'yt_evade': yt_evade, 'ev_raise': ev_raise_rd,
+        'comp_events': comp_events,
+        't1_man': t1_man, 't2_man': t2_man, 't3_man': t3_man, 'yt_man': yt_man, 'sot_rolls': sot_rolls,
+        'yt_boost_roll': yt_boost_roll, 'yt_top': yt_top,
+        't1_adv': t1_adv, 't2_adv': t2_adv, 't3_adv': t3_adv,
+        'tie_hull': tie_hull.copy(), 'tie_shaken': tie_shaken.copy()
+    })
+
+    # Stay on Target: success = YT -1 momentum next round (cumulative: 2 successes = -2, 3 = -3). Negated if YT Evaded with raise. YT Shaken = lose all momentum.
     prev_yt_sot = yt_sot
     yt_sot = 0
     if yt_shaken:
         yt_sot = 0  # Shaken loses all momentum
     elif not ev_raise_rd:
         for m, r in zip([t1_man, t2_man, t3_man], sot_rolls):
-            if m == 'Stay on Target' and r + tie_mod >= yt_pilot + (YT_HANDLING + yt_boost - prev_yt_sot):
-                yt_sot += 2  # cumulative per success
+            if m == 'Stay on Target' and r + tie_mod >= yt_sot_def + (YT_HANDLING + yt_boost - prev_yt_sot):
+                yt_sot += 1  # cumulative per success
     if yt_man == 'I Can Hold It':
         yt_shaken = False  # I Can Hold It clears Shaken
     
@@ -199,7 +235,8 @@ for rd in range(1, 6):
     if yt_shaken:
         yt_boost = 0  # Shaken loses all momentum
     elif yt_man == 'Boost' and yt_boost_roll is not None:
-        if yt_boost_roll + yt_mod >= 4:
+        brtot = yt_boost_roll + yt_mod
+        if brtot >= 4:
             yt_boost += 2
     
     # Regen
@@ -225,13 +262,13 @@ with open('Scenario_YT1300_vs_3TIEs.md', 'w', encoding='utf-8') as f:
 | **TIE Fighter 3** | {TIE["size"]} | {TIE["handling"]:+d} | {TIE["speed"]} | {TIE["toughness"]} | {TIE["armor"]} | {TIE["hull"]} | — | {", ".join(TIE["crew"])} |
 
 **Key modifiers:**
-- TIEs have speed advantage (+{TIE_SPEED_ADV} momentum vs YT-1300).
+- TIEs’ **handling advantage** vs YT-1300: **+{TIE_HANDLING_MOM}** momentum each round (YT-1300 vs three TIEs: **+{YT_HANDLING_MOM}**). See guide: strict majority on Handling; +2 if also ≥ highest enemy Handling + 3.
 - YT-1300 has turret; TIEs have fixed forward cannons.
 - YT-1300 has shields ({YT_SHIELDS_MAX} max); regen 5% + 5%/raise. TIEs have none.
 - **One weapon system = one target per round** (quad turret fires at one ship only).
-- **Momentum** persists round to round. Lose all: Distraction, becoming Shaken. **Stay on Target** (opposed Piloting): target -2 momentum per success (cumulative; 2 successes = -4, 3 = -6); each side adds its momentum to its roll.
-- **Joker:** Acts first, Pilot auto-passes initiative test, +2 to all crew rolls that round, short range.
-- **Club drawn** = suit ♣; triggers Complications (Phase 7, roll 2d6 on table).
+- **Momentum** persists round to round. Lose all: Distraction, becoming Shaken. **Stay on Target** (opposed Piloting): target -1 momentum per success (cumulative; 2 successes = -2, 3 = -3).
+- **Joker:** Acts first, +2 to all crew rolls that round, short range.
+- **Complications:** Each time a ship **takes hull damage** from an attack (see guide §4), roll **2d6** on the Complications table for **that ship** (usually resolved during or right after Gunnery).
 - **Raise:** To-hit roll ≥ 8 (TN+4) adds +1d6 to damage.
 - **Crew skills:** YT-1300 Pilot, Co-pilot, Gunner, Engineer = d10 + wild d6 (aces/Wild Cards; take best). TIE Pilot/Gunner = d6.
 
@@ -244,35 +281,21 @@ with open('Scenario_YT1300_vs_3TIEs.md', 'w', encoding='utf-8') as f:
         f.write(f"### Initiative (start of round)\n")
         f.write(f"- YT-1300 shields: **{r['yt_shields']}**.\n\n")
         f.write(f"### Initiative draw\n")
-        yc = ' — **Club drawn**' if r['yt_club'] else ''
         yj = ' — **Joker**' if r['yt_joker'] else ''
-        c1 = ' — **Club drawn**' if r['t1_club'] else ''
         c1j = ' — **Joker**' if r['t1_joker'] else ''
-        c2 = ' — **Club drawn**' if r['t2_club'] else ''
         c2j = ' — **Joker**' if r['t2_joker'] else ''
-        c3 = ' — **Club drawn**' if r['t3_club'] else ''
         c3j = ' — **Joker**' if r['t3_joker'] else ''
-        f.write(f"- YT-1300: {card_str(r['yt_draw'][0][0], r['yt_draw'][0][1])}, {card_str(r['yt_draw'][1][0], r['yt_draw'][1][1])}{yc}{yj}\n")
-        f.write(f"- TIE 1: {card_str(r['t1_draw'][0][0], r['t1_draw'][0][1])}, {card_str(r['t1_draw'][1][0], r['t1_draw'][1][1])}{c1}{c1j}\n")
-        f.write(f"- TIE 2: {card_str(r['t2_draw'][0][0], r['t2_draw'][0][1])}, {card_str(r['t2_draw'][1][0], r['t2_draw'][1][1])}{c2}{c2j}\n")
-        f.write(f"- TIE 3: {card_str(r['t3_draw'][0][0], r['t3_draw'][0][1])}, {card_str(r['t3_draw'][1][0], r['t3_draw'][1][1])}{c3}{c3j}\n\n")
-        f.write(f"### Piloting\n")
-        yt_mod = YT_HANDLING + r.get('yt_boost', 0) - r['yt_sot']
-        mod_parts = [f'{YT_HANDLING:+d} Handling'] if YT_HANDLING != 0 else ['0 Handling']
-        if r.get('yt_boost', 0): mod_parts.append(f"+{r['yt_boost']} Boost")
-        if r['yt_sot']: mod_parts.append(f"-{r['yt_sot']} Stay on Target")
-        mod_str = ' '.join(mod_parts) + f" = {yt_mod}"
-        if r['yt_joker']:
-            f.write(f"- **YT-1300** Joker — auto-passes (initiative test). Keeps Joker.\n")
-        else:
-            f.write(f"- **YT-1300** Pilot (d10+wild d6): {mod_str}. TN 4. Rolls {r['yt_pilot']} + {yt_mod} = {r['yt_pilot']+yt_mod} — {'success' if r['yt_pilot']+yt_mod>=4 else 'fail'}. Keeps {r['yt_card']}.\n")
-        for tie_id, joker_key, pilot_key, card_key in [(1,'t1_joker','t1_pilot','t1_card'), (2,'t2_joker','t2_pilot','t2_card'), (3,'t3_joker','t3_pilot','t3_card')]:
-            if r[joker_key]:
-                f.write(f"- **TIE {tie_id}** Joker — auto-passes (initiative test). Keeps Joker.\n")
-            else:
-                succ = r[pilot_key] + tie_mod >= 4
-                f.write(f"- **TIE {tie_id}** Pilot: d6 + {tie_mod}. Rolls {r[pilot_key]} + {tie_mod} = {r[pilot_key]+tie_mod} — {'success' if succ else 'fail'}. Keeps {r[card_key]}.\n")
+
+        def draw_line(label, draw, joker_note):
+            cards_txt = ", ".join(card_str(a, b) for a, b in draw)
+            f.write(f"- **{label}:** {cards_txt}{joker_note}\n")
+
+        draw_line("YT-1300", r['yt_draw'], yj)
+        draw_line("TIE 1", r['t1_draw'], c1j)
+        draw_line("TIE 2", r['t2_draw'], c2j)
+        draw_line("TIE 3", r['t3_draw'], c3j)
         f.write("\n")
+        f.write("*Initial initiative draw (no Piloting roll). **Boost** raise or **I Know a Few Maneuvers** (success/raises) can add extra card(s) in Maneuvers; the Pilot chooses which applies—see guide.*\n\n")
         ord_str = ' → '.join([f"{s[0]} ({s[1]})" for s in r['order']])
         f.write(f"**Order:** {ord_str}\n\n")
         f.write(f"### Maneuver\n")
@@ -288,8 +311,13 @@ with open('Scenario_YT1300_vs_3TIEs.md', 'w', encoding='utf-8') as f:
         elif r.get('yt_man') == 'Boost':
             br = r.get('yt_boost_roll')
             bmod = YT_HANDLING + r.get('yt_boost', 0) - r['yt_sot']
-            bsucc = br is not None and (br + bmod >= 4)
-            f.write(f"- YT-1300: **Boost** (top initiative) — Piloting check (TN 4). Roll {br} + {bmod} = {br+bmod if br is not None else '?'} — {'success' if bsucc else 'fail'}. {'+2 momentum.' if bsucc else 'No effect.'}\n")
+            brtot = (br + bmod) if br is not None else 0
+            bsucc = br is not None and brtot >= 4
+            raise_note = ""
+            ch = r.get('yt_boost_chosen')
+            if r.get('yt_boost_raise') and ch is not None:
+                raise_note = f" **Raise:** extra initiative card; chose **{card_str(ch[0], ch[1])}** for order/advantage/range (simulation: highest rank). "
+            f.write(f"- YT-1300: **Boost** (top initiative) — Piloting check (TN 4). Roll {br} + {bmod} = {brtot if br is not None else '?'} — {'success' if bsucc else 'fail'}. {'+2 momentum.' if bsucc else 'No effect.'}{raise_note}\n")
         else:
             f.write(f"- YT-1300: **Evade** (Pilot d10+wild d6) — Piloting check (TN 4), -3 (3 opponents). Roll {r['yt_evade']} - 3 = {r['yt_evade']-3} — {'success' if ev_succ else 'fail'}{' (raise)' if ev_raise else ''}. {ev_desc}\n")
         def man_line(tie_id, man, sot_r):
@@ -297,9 +325,9 @@ with open('Scenario_YT1300_vs_3TIEs.md', 'w', encoding='utf-8') as f:
             if man == 'Stay on Target':
                 immune = r.get('ev_raise', False)  # YT Evade raise = immune to Stay on Target
                 if immune: return f"- TIE {tie_id}: **Stay on Target** vs YT-1300 — negated (YT Evaded with raise).\n"
-                yt_sot_tn = r['yt_pilot'] + (YT_HANDLING + r.get('yt_boost', 0) - r['yt_sot'])
+                yt_sot_tn = r['yt_sot_def'] + (YT_HANDLING + r.get('yt_boost', 0) - r['yt_sot'])
                 succ = sot_r + tie_mod >= yt_sot_tn
-                return f"- TIE {tie_id}: **Stay on Target** (Pilot d6) vs YT-1300 — opposed Piloting. TIE {tie_id}: {sot_r}+{tie_mod} vs YT: {yt_sot_tn} — {'success' if succ else 'fail'}. {'YT-1300 -2 momentum.' if succ else 'No effect.'}\n"
+                return f"- TIE {tie_id}: **Stay on Target** (Pilot d6) vs YT-1300 — opposed Piloting. TIE {tie_id}: {sot_r}+{tie_mod} vs YT: {yt_sot_tn} — {'success' if succ else 'fail'}. {'YT-1300 -1 momentum.' if succ else 'No effect.'}\n"
             return f"- TIE {tie_id}: **Boost** (Pilot d6) — Piloting TN 4. Roll {sot_r}+{tie_mod} = {sot_r+tie_mod} — success. +2 momentum.\n"
         f.write(man_line(1, r['t1_man'], r['sot_rolls'][0]))
         f.write(man_line(2, r['t2_man'], r['sot_rolls'][1]))
@@ -375,18 +403,11 @@ with open('Scenario_YT1300_vs_3TIEs.md', 'w', encoding='utf-8') as f:
         regen = 2 if r['elec'] >= 4 else 0
         if r['elec'] >= 8: regen = 4
         f.write(f"- YT-1300 Electronics (Engineer d10+wild d6): Rolls {r['elec']} — {'raise' if r['elec']>=8 else 'success' if r['elec']>=4 else 'fail'}. +{regen} shields.\n\n")
-        # Phase 7: Complications (Club drawn)
-        any_club = r['yt_club'] or r['t1_club'] or r['t2_club'] or r['t3_club']
-        if any_club:
-            f.write(f"### Complications (Phase 7)\n")
-            for name, cr in [('YT-1300', r['comp_rolls'][0]), ('TIE 1', r['comp_rolls'][1]), ('TIE 2', r['comp_rolls'][2]), ('TIE 3', r['comp_rolls'][3])]:
-                if cr is not None:
-                    if cr == 2: eff = "Disaster (Pilot -4; fail = major system failure)"
-                    elif 3 <= cr <= 5: eff = "Distraction (ship loses all momentum)"
-                    elif 6 <= cr <= 8: eff = "Flight deck ionization (10 stun damage to a random crew member)"
-                    elif 9 <= cr <= 11: eff = "Complication (Pilot -2; fail = subsystem offline)"
-                    else: eff = "Major (Pilot -4; fail = subsystem offline)"
-                    f.write(f"- **{name}** drew Club: 2d6 = {cr}. {eff}\n")
+        if r.get('comp_events'):
+            f.write(f"### Complications (damage)\n")
+            for ev in r['comp_events']:
+                cr = ev['roll']
+                f.write(f"- **{ev['ship']}** took hull damage — Complication **2d6 = {cr}**. {complication_text(cr)}\n")
             f.write("\n")
         f.write("---\n\n")
 

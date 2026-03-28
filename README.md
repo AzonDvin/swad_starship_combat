@@ -5,6 +5,7 @@ A Savage Worlds Adventure Edition (SWADE) ship combat system for Star Wars–sty
 ## Contents
 
 - **SWADE_Star_Wars_Ship_Combat_Guide.md** — Full rules reference: initiative cards, maneuvers, momentum, shields, hull damage, and quick reference tables
+- **Ship_Combat_Quick_Reference.md** — One-sheet cheat sheet (tables + round order) distilled from the combat guide
 - **Combat_Round_Flowchart.md** — Combat round flow
 - **gen_scenario.py** — Generates sample scenarios (YT-1300 vs 3 TIE fighters)
 - **gen_maneuver_cards.py** — Generates printable maneuver cards (PDF)
@@ -15,7 +16,7 @@ A Savage Worlds Adventure Edition (SWADE) ship combat system for Star Wars–sty
 ## Quick Start
 
 1. Read **SWADE_Star_Wars_Ship_Combat_Guide.md** for the rules.
-2. Use **Combat_Round_Flowchart.md** during play.
+2. Use **Ship_Combat_Quick_Reference.md** at the table and **Combat_Round_Flowchart.md** for phase detail.
 3. Generate a sample scenario:
    ```bash
    python gen_scenario.py
@@ -32,11 +33,12 @@ A Savage Worlds Adventure Edition (SWADE) ship combat system for Star Wars–sty
 | Maneuver        | Summary                                                        |
 | --------------- | -------------------------------------------------------------- |
 | Evade           | -2 to opponents targeting you; raise negates Stay on Target   |
-| Stay on Target  | Opposed Piloting; success = target -2 momentum                |
+| Stay on Target  | Opposed Piloting; success = target -1 momentum                |
 | I Have You Now  | Req: +2 momentum; +2 Gunnery vs target on success             |
-| I Can Hold It   | Steady flight; Shaken ships must use it to clear               |
+| I Can Hold It   | Steady flight; Shaken must use it to clear; optional momentum → 0 |
 | Boost           | Piloting check; success = +2 momentum                         |
-| Loop            | Opposed vs higher card; reverse advantage on success          |
+| I Know a Few Maneuvers | Piloting TN 4; success/raises = extra initiative card(s), choose; no momentum |
+| Loop            | Opposed vs higher card; reverse advantage; raise = −1 incoming |
 
 ## Requirements
 

@@ -1,6 +1,6 @@
 # Savage Worlds + Star Wars Ship Combat Guide
 
-A combined reference for running starship combat using Savage Worlds Adventure Edition (SWADE) with Star Wars flavor. The workspace `swad_shipcombat` was empty?this document consolidates the official Savage Worlds approach, community variants, and the Star Wars Companion into one practical guide.
+A combined reference for running starship combat using Savage Worlds Adventure Edition (SWADE) with Star Wars flavor. It consolidates SWADE core ideas, community variants, and the Star Wars Companion into one practical guide.
 
 ---
 
@@ -27,31 +27,35 @@ SWADE does **not** include dedicated naval or starship combat rules in the core 
 
 ## 2. Initiative-Card Combat System
 
-Combat uses **initiative cards** for both turn order and tactical position. Each round, ships draw cards; higher card = acts first and has **advantage** over lower cards. Your card rank also determines your **range band** when firing (2 = no shot; 3-7 = long; 8-Jack = medium; Queen-Joker = short).
+Combat uses **initiative cards** for turn order, advantage, and range. Each round, each ship draws **one** initiative card. The higher card acts first and has **advantage** over lower cards. Card rank sets **range** when firing: 2 = no shot; 3–7 = long (−4); 8–Jack = medium (−2); Queen–Joker = short (0).
 
-There is no chase track. Maneuvers grant **momentum** (see below).
+Maneuvers grant **momentum** (see below).
 
-### Speed
+### Handling advantage (momentum)
 
-Compare ships' **Top Speed** (from ship stats) at the start of combat. A ship gains the speed bonus if it is faster than the **majority of opposing ships**. In that case: **+1 momentum** each round; if it is **2× or more faster** than most opponents, **+2 momentum** instead. This reflects the faster ship's ability to dictate the chase (better positioning, easier to keep or break contact). Speed advantage applies to the Piloting check and all opposed Piloting rolls. Ships that are slower than the majority of opponents receive no bonus from speed.
+Compare each ship’s **Handling** (the ship stat modifier from ship stats) to **opposing ships** at the start of combat. Count how many opponents have **strictly lower** Handling than yours.
 
-### Momentum
+- **+1 momentum** each round if your Handling is **higher than a strict majority** of opposing ships (e.g., higher than more than half of them).
+- **+2 momentum** each round instead if you also meet the **+1** condition **and** your Handling is **at least 3 points higher** than the **highest** opposing ship’s Handling.
 
-Each ship starts combat with **zero momentum**; momentum **persists from round to round**. Maneuvers and speed advantage add or subtract momentum. Momentum adds to all Piloting rolls (including opposed rolls and the initiative card check). **Distraction** and **becoming Shaken** each cause the ship to lose all momentum. See full rules in the Momentum section.
+This bonus is **handling advantage** (agility in the fight), not raw speed. It applies to **maneuver-phase** Piloting checks (e.g., Evade, Boost, I Know a Few Maneuvers) and all **opposed** Piloting rolls. Ships that do not beat a strict majority on Handling get **no** bonus from this rule.
+
+**Momentum (brief):** Starts at 0, persists round to round; **handling advantage** and maneuvers change it. Full rules: **Momentum** under Hull (§4).
 
 ### Maneuvers
 
-Each round during the Maneuver phase, the Pilot chooses one maneuver. **Momentum** gained or lost persists and applies to future Piloting rolls.
+Each round during the Maneuver phase, the Pilot chooses one maneuver. **Momentum** gained or lost persists.
 
 
-| Maneuver           | Effect                                                                                                                                                          |
-| ------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Evade**          | Piloting check (TN 4), -1 per opposing ship. Success: -2 to opponents targeting this ship. Raise: this ship negates Stay on Target maneuvers this round.        |
-| **Stay on Target** | Opposed Piloting vs one target. Success = target -2 momentum. Raise = +1 momentum.                                                                              |
-| **I Have You Now** | Requires +2 momentum. Opposed Piloting vs one target. Success = +2 Gunnery vs target, -2 momentum. Raise = +2 Gunnery, no momentum loss. Failure = -4 momentum. |
-| **I Can Hold It**  | Steady flight. Shaken ships: must declare it (clears Shaken).                                                                                                     |
-| **Boost**          | Piloting check (TN 4). Success = +2 momentum. Critical Failure = -2 momentum.                                                                                   |
-| **Loop**           | Opposed Piloting vs one target (higher card). Both add -(Size - Handling) and momentum. Success = reverse advantage + +1 momentum. Crit fail = -2 momentum.    |
+| Maneuver           | Effect                                                                                                                                                                                                                   |
+| ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **Evade**          | Piloting check (TN 4), -1 per opposing ship. Success: -2 to opponents targeting this ship. Raise: negates Stay on Target vs this ship this round.                                                                        |
+| **Stay on Target** | Opposed Piloting vs one target. Success = target -1 momentum. Raise = +1 momentum.                                                                                                                                       |
+| **I Have You Now** | Requires 2 or more momentum. Opposed Piloting vs one target. Success = +2 Gunnery vs target, -2 momentum. Raise = +2 Gunnery, no momentum loss. Failure = -4 momentum.                                                   |
+| **I Can Hold It**  | Steady flight. Shaken ships: must declare it (clears Shaken). **Optional:** reset **momentum** to **0**.                                                                                                                  |
+| **Boost**          | Piloting check (TN 4). Success = +2 momentum. Raise = draw another initiative card and choose which card applies (order, advantage, range).                                                                              |
+| **I Know a Few Maneuvers** | Piloting check (TN 4). Success = draw **another** initiative card and **choose** which card applies (order, advantage, range). **Raise:** draw **one additional card per raise**, then **choose** which card applies (same as success, with a larger pool). |
+| **Loop**           | Opposed Piloting vs one target (higher card). Both add -(Size - Handling). Success = reverse advantage, +1 momentum. Raise = −1 to ships targeting you (until your next Maneuver). Crit fail = -2 momentum. |
 
 
 ### Maneuver Effects (Detailed)
@@ -66,15 +70,15 @@ Each round during the Maneuver phase, the Pilot chooses one maneuver. **Momentum
 
 **Stay on Target**
 
-- **Effect:** Apply pressure to one target. Make an **opposed Piloting** roll vs that ship's Pilot. **Each side adds its current momentum to its roll.**
-- **Success:** Target **-2 momentum** (you're staying on their tail).
+- **Effect:** Apply pressure to one target. Make an **opposed Piloting** roll vs that ship's Pilot.
+- **Success:** Target **-1 momentum** (you're staying on their tail).
 - **Raise:** **You** get **+1 momentum**.
 - **Failure:** No effect.
 
 **I Have You Now**
 
 - **Prerequisite:** You must have **+2 or more momentum** (you're on their tail).
-- **Effect:** Line up the kill shot. Make an **opposed Piloting** roll vs one declared target. **Each side adds its current momentum to its roll.**
+- **Effect:** Line up the kill shot. Make an **opposed Piloting** roll vs one declared target.
 - **Success:** **+2 to your Gunnery** vs that target this round. **-2 momentum** (you committed to the shot).
 - **Raise:** **+2 to your Gunnery** vs that target this round. **No momentum loss** (perfect setup).
 - **Failure:** No bonus. **-4 momentum** (you overcommitted and lost position).
@@ -84,6 +88,7 @@ Each round during the Maneuver phase, the Pilot chooses one maneuver. **Momentum
 
 - **Effect:** Steady flight.
 - **Shaken ships:** A Shaken ship clears Shaken by declaring **I Can Hold It** as its maneuver; it may take no other maneuver that round.
+- **Optional:** When you declare **I Can Hold It**, you may **reset momentum to 0** (stable line—give up accumulated position energy).
 - **Roll:** None.
 - **Next round:** No modifier.
 
@@ -91,14 +96,21 @@ Each round during the Maneuver phase, the Pilot chooses one maneuver. **Momentum
 
 - **Effect:** Push engines for advantage. **Piloting** check (TN 4).
 - **Success:** **+2 momentum**.
-- **Raise:** **Draw 1 extra card** next round (pick best of 3).
-- **Failure:** No bonus. Critical Failure: **-2 momentum** (overstressed engines).
+- **Raise:** Draw **another** initiative card, then **choose** which of your initiative cards applies for **turn order, advantage, and range** for the rest of the round (including Gunnery). Re-sort acting order among ships if needed.
+- **Failure:** No bonus.
+
+**I Know a Few Maneuvers**
+
+- **Effect:** Veteran flying—re-sequence off the initial draw. **Piloting** check (TN 4).
+- **Success:** Draw **one** additional initiative card, then **choose** which of **your** initiative cards applies for **turn order, advantage, and range** for the rest of the round (including Gunnery). Re-sort acting order among ships if needed.
+- **Raise:** Draw **one additional initiative card per raise** (each raise adds another card to your pool). When finished drawing, **choose** which **one** card applies for the round (same as success—order, advantage, range). **No momentum** gain or loss.
+- **Failure:** No effect.
 
 **Loop**
 
-- **Effect:** Reverse onto a pursuer's tail. **Opposed Piloting** vs one ship that had a **higher card than you** this round. **Both combatants** add **-(Size - Handling)** to their roll (each uses their own ship's Size and Handling; e.g., Size 8 Handling +1 = -7). Each side also adds its momentum.
+- **Effect:** Reverse onto a pursuer's tail. **Opposed Piloting** vs one ship that had a **higher card than you** this round. **Both combatants** add **-(Size - Handling)** to their roll (each uses their own ship's Size and Handling; e.g., Size 8 Handling +1 = -7).
 - **Success (you win):** For **Gunnery this round**, you have **advantage over them** (you reversed onto their six). Also **+1 momentum**.
-- **Raise:** **Draw 1 extra card** next round.
+- **Raise:** Until your next Maneuver phase, **−1** to attack rolls from **any ship targeting you** (Gunnery, etc.).
 - **Failure:** No effect. Critical Failure: **-2 momentum** (disoriented).
 
 ### Range (from Initiative Card)
@@ -106,20 +118,15 @@ Each round during the Maneuver phase, the Pilot chooses one maneuver. **Momentum
 
 | Card        | Range   | Modifier |
 | ----------- | ------- | -------- |
-| 2           | No shot | ?        |
+| 2           | No shot | —        |
 | 3-7         | Long    | -4       |
 | 8-Jack      | Medium  | -2       |
 | Queen-Joker | Short   | 0        |
 
 
-### Complications
+**Complications:** Trigger when a ship **takes hull damage** from a hit (see **Hull and destruction** in §4)—**not** on initiative suits. Roll **2d6** for the **ship that was hit** when the damage lands; use **Phase 6** for Reinforce, Diagnose, and other follow-up, then **end-of-round** steps (e.g. break away). **Misses** (and narratively “no impact” hits, at GM discretion) do not trigger a roll. Full table and effects: **Complications (2d6 on hull damage)** in §5.
 
-- **Clubs** drawn for initiative trigger complications (Phase 7). Roll 2d6 on the Complications table.
-- Suits on cards may provide terrain or situational modifiers at GM discretion.
-
-**Joker (special)**
-
-- When a ship draws the **Joker** for initiative: acts first regardless of card rank; **Pilot automatically passes** the Piloting check (initiative test); **+2 to all crew rolls** that round (Piloting, Shooting, Repair, Electronics, etc.); counts as **short range** (0) when resolving attacks.
+**Joker (initiative):** Acts first regardless of rank; **+2 to all crew rolls** that round; counts as **short range** (0) for attacks.
 
 ---
 
@@ -131,7 +138,7 @@ Typical ship stat block:
 | Stat          | Purpose                                                                            |
 | ------------- | ---------------------------------------------------------------------------------- |
 | **Size**      | Affects Toughness, Crew; large ships are harder to maneuver                        |
-| **Handling**  | Modifier to Piloting; nimble ships get +1 or +2                                    |
+| **Handling**  | Modifier on Piloting rolls; handling advantage vs opponents (+1 or +2 momentum each round); with Size, each ship’s Loop modifier is −(Size − Handling) |
 | **Top Speed** | Movement rate; in space often scaled up                                            |
 | **Toughness** | Damage soak; often Size + Armor                                                    |
 | **Shields**   | Maximum shield value (e.g., 60, 80, 120); omit if ship has no deflectors           |
@@ -152,7 +159,7 @@ Ships with deflector shields absorb damage before it reaches the hull. Shield st
 
 - Each ship with shields has a maximum shield value (e.g., 60, 80, 120). This is listed in the ship stat block (see Ship Stats).
 - Damage is applied to shields first. Only damage that exceeds the current shield total reaches the hull and is rolled against Toughness for Shaken and hull damage.
-- Track current shields separately from hull damage. When shields reach 0, further damage goes directly to the hull.
+- Track current shields separately from **hull damage** marked on the hull track. When shields reach 0, further damage goes directly to the hull.
 
 **Regeneration**
 
@@ -180,7 +187,9 @@ Ships with deflector shields absorb damage before it reaches the hull. Shield st
 
 ### Hull and Destruction
 
-Each ship has a **Hull** value (see ships.json: typically 3 for fighters, 4 for freighters, more for capital ships). Hull represents how many wounds the ship can absorb before destruction.
+Each ship has a **Hull** value (see ships.json: typically 3 for fighters, 4 for freighters, more for capital ships). Hull is how much **hull damage** the ship can take before destruction.
+
+**Taking hull damage (from hits):** A ship **takes hull damage** from an attack whenever that attack **deals damage** to the ship—whether the damage is **absorbed by shields**, applied as **hull damage** on the track (below), or both. **Complications** (§5): each time a ship **takes hull damage** this way, roll **2d6** on the Complications table for **that ship**. Shield-only hits count; **misses** do not (unless the GM rules otherwise).
 
 **Resolving hull damage**
 
@@ -193,7 +202,7 @@ When damage exceeds shields (or the ship has no shields), compare the damage to 
 
 - **Momentum:** A ship that becomes Shaken loses all momentum.
 - **Weapons:** A Shaken ship may still fire (Gunnery phase); gunners act normally.
-- **Maneuver:** A Shaken ship must declare **I Can Hold It** as its maneuver; it may take no other maneuver that round. Declaring I Can Hold It clears Shaken.
+- **Maneuver:** A Shaken ship must declare **I Can Hold It** as its maneuver; it may take no other maneuver that round. Declaring I Can Hold It clears Shaken. **I Can Hold It** may **optionally** reset **momentum** to **0** (see maneuver table).
 
 **Hull damage penalties**
 
@@ -209,31 +218,32 @@ When hull damage equals the ship's Hull value, the ship is **destroyed** (or dis
 
 ### Momentum
 
-**Momentum** tracks how well a ship's combat is going. Each ship starts combat with **zero momentum**; momentum **persists from round to round**. Maneuvers add or subtract momentum (Stay on Target, Boost, Loop, I Have You Now). **Lose all momentum** when: Distraction complication, or **the ship becomes Shaken**.
+**Momentum** tracks how well a ship's combat is going. Each ship starts combat with **zero momentum**; momentum **persists from round to round**. **Handling advantage** and maneuvers add or subtract momentum (Stay on Target, Boost, Loop, I Have You Now). **Lose all momentum** when: Distraction complication, or **the ship becomes Shaken**.
 
-**Momentum and Piloting:** Momentum adds to (or subtracts from) all Piloting rolls. For **opposed Piloting rolls** (e.g., Stay on Target, I Have You Now, Loop), each side adds its current momentum to its roll. For Piloting checks vs TN 4 (initiative card choice), add momentum to the roll.
+All **Piloting** rolls **add** (or **subtract**) the ship’s **current momentum** to the roll.
 
 ---
 
 ## 5. Rules of Play
 
-This chapter combines the SWADE chase rules, ship mechanics, and Star Wars elements into one unified starship combat system. It defines the round sequence and **each player's job** during combat.
+This chapter is the **playing the round** reference: turn order, crew jobs, complications, and combat end. It matches the **initiative-card** system above (not the SWADE chase track).
 
 ### Unified Round Sequence
 
 Combat proceeds in rounds. Each round follows this order:
 
 
-| Phase                     | Who Acts                                        | What Happens                                                                                                                                                                                                              |
-| ------------------------- | ----------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **1. Initiative**         | All ships                                       | Draw cards; higher card acts first and has *advantage* vs lower cards                                                                                                                                                     |
-| **2. Support (optional)** | Co-pilot, Commander, Engineer, Systems Operator | Aid other crew before their checks                                                                                                                                                                                        |
-| **3. Piloting**           | Pilot                                           | Piloting check (TN 4); determines which initiative card the ship keeps                                                                                                                                                    |
-| **4. Maneuver**           | Pilot                                           | Evade (-2 incoming; raise = negates Stay on Target), Stay on Target (+/- momentum), I Have You Now (+2 Gunnery vs target; req. +2 momentum), I Can Hold It, Boost (+ momentum), Loop (opposed; -(Size-Handling) + momentum) |
-| **5. Gunnery**            | Gunners                                         | Fire weapons (based on advantage and range)                                                                                                                                                                               |
-| **6. Systems**            | Engineer, Systems Operator                      | Repair, shield regen (Electronics check), sensor locks                                                                                                                                                                    |
-| **7. Complications**      | GM                                              | Resolve Club cards and system failures                                                                                                                                                                                    |
+| Phase                     | Who Acts                                        | What Happens                                                                                                                                                                |
+| ------------------------- | ----------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **1. Initiative**         | All ships                                       | Each ship draws **one** initiative card. **Boost** raise or **I Know a Few Maneuvers** (success/raises) can add cards during Maneuvers—see §2. Higher card acts first and has *advantage* vs lower cards.       |
+| **2. Support (optional)** | Co-pilot, Commander, Engineer, Systems Operator | Optional **trait rolls** (Notice, Repair, Electronics, Smarts/Battle, etc.) to aid the Pilot’s **maneuver** checks or Gunners’ **Shooting**—**before** the Maneuver phase. See **Player Jobs**. |
+| **3. Maneuver**           | Pilot                                           | Evade, Stay on Target, I Have You Now, I Can Hold It, Boost, I Know a Few Maneuvers, Loop — see maneuver table in §2                                                        |
+| **4. Gunnery**            | Gunners                                         | Fire weapons (advantage, range). **Hull damage → Complication 2d6** for the ship that was hit (resolve now or note for Phase 6).                                             |
+| **5. Systems**            | Engineer, Systems Operator                      | Repair, shield regen (Electronics check), sensor locks                                                                                                                      |
+| **6. Complications**      | GM                                              | Resolve **complication follow-up** from damage this round (Reinforce, Diagnose, lingering effects). **End of round:** qualifying ships may **break away** (see Combat End). |
 
+
+**Initiative vs Support vs Maneuver:** Phase **1** is **initiative cards** for each ship—order, advantage, and range (no **Pilot** Piloting roll for initiative; extra cards from **Boost** raise or **I Know a Few Maneuvers** happen in Phase **3**). Phase **2** is **Support**: optional **trait rolls** by crew who have that role—**before** the Pilot’s maneuver (aid Piloting, Shooting, or tactical rerolls). Phase **3** is the Pilot’s **maneuver** (Piloting rolls as required by the chosen maneuver).
 
 ---
 
@@ -248,14 +258,15 @@ Each crew role has specific responsibilities. A character may fill multiple role
 **Your job:** Fly the ship, gain advantage, and set up shots for the gunners.
 
 
-| When               | Action                | Skill    | Effect                                                                                                                                                                                                                                                                                                                                                                                     |
-| ------------------ | --------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| **Piloting phase** | Piloting check (TN 4) | Piloting | Success = keep highest of 2 initiative cards. Raise = draw another, pick best. Fail = must take lowest card.                                                                                                                                                                                                                                                                               |
-| **Maneuver phase** | Choose maneuver       | ?        | Evade (-1 per opponent; success = -2 incoming targeting; raise = negates Stay on Target), Stay on Target (target -2 momentum; raise = you +1 momentum), I Have You Now (req. +2 momentum; opposed; +2 Gunnery vs target; success -2 mom, raise no loss, fail -4 mom), I Can Hold It, Boost (+2 momentum), Loop (opposed vs target; both apply -(Size-Handling) and momentum) |
-| **All phases**     | Declare speed         | ?        | Faster than majority of opponents = +1 momentum; 2× faster = +2 momentum                                                                                                                                                                                                                                                                                                                   |
+| When               | Action                | Skill    | Effect                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| ------------------ | --------------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Initiative**     | —                     | —        | Draw **one** initiative card (no Piloting roll). **Boost** raise or **I Know a Few Maneuvers** (success/raises): extra card(s) and choice—see §2.                                                                                                                                                                                                                                                                                         |
+| **Maneuver phase** | Choose maneuver       | Piloting | Evade (-1 per opponent; success = -2 incoming targeting; raise = negates Stay on Target), Stay on Target (target -1 momentum; raise = you +1 momentum), I Have You Now (req. +2 momentum; opposed; +2 Gunnery vs target; success -2 mom, raise no loss, fail -4 mom), I Can Hold It, Boost (+2 momentum; raise = extra card + choose), I Know a Few Maneuvers (Piloting TN 4; success/raises = extra card(s) + choose, no momentum), Loop (opposed vs target; both apply -(Size-Handling); raise = −1 to ships targeting you until your next Maneuver) |
+| **All rounds**     | Handling advantage    | —        | Higher Handling than a strict majority of opponents = +1 momentum; if also ≥ highest enemy Handling + 3, +2 instead                                                                                                                                                                                                                                                                                                                      |
+| **End of round**   | Break away (optional) | —        | After Complications: if your initiative **card** beat **all** enemies’ **this round** and your **Top Speed** exceeds **each** enemy’s, you may declare sublight disengagement (see **Combat End**).                                                                                                                                                                                                                                      |
 
 
-**Key modifiers to your Piloting check:** Ship Handling, **momentum** (from maneuvers, speed advantage, etc.), ship hull/shaken, ship agility test (ship trait roll: fail = -1, success = +1), terrain/asteroids (-2).
+**Key modifiers to your Piloting check:** Ship Handling (stat on the sheet), ship hull/Shaken, terrain/asteroids (−2).
 
 **Edges that help:** Ace, Steady Hands, Quick, Level-Headed.
 
@@ -274,7 +285,7 @@ Each crew role has specific responsibilities. A character may fill multiple role
 | **Snapfire weapons**  | Torpedoes, missiles | Shooting | -2 unless target at short range                                                                        |
 
 
-**Range (from initiative card):** 2 = no shot; 3?7 = long (-4); 8?Jack = medium (-2); Queen?Joker = short (0).
+**Range (from initiative card):** 2 = no shot; 3–7 = long (-4); 8–Jack = medium (-2); Queen–Joker = short (0).
 
 **To hit:** Base TN 4. Modifiers apply to your Shooting roll and stack (e.g., target Evading -2 + medium range -2 = -4). Roll + modifiers vs TN 4.
 
@@ -287,11 +298,11 @@ Each crew role has specific responsibilities. A character may fill multiple role
 **Your job:** Keep systems online and repair damage during combat.
 
 
-| When                | Action                   | Skill  | Effect                                                                                                                                                                  |
-| ------------------- | ------------------------ | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Systems phase**   | Repair subsystem         | Repair | Success = bring one offline system back online. Raise = back online + remove 1 hull damage/shaken                                                                       |
-| **When Club drawn** | Reinforce failing system | Repair | When resolving a Club: Repair check (TN 4) with same modifier as Pilot (Disaster -4, Major -4, Complication -2). Success = avoid system failure before 1d6 system roll. |
-| **Between rounds**  | Emergency patch          | Repair | Restore limited function to heavily damaged system (GM discretion)                                                                                                      |
+| When                                     | Action                   | Skill  | Effect                                                                                                                                                                                    |
+| ---------------------------------------- | ------------------------ | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Systems phase**                        | Repair subsystem         | Repair | Success = bring one offline system back online. Raise = back online + remove 1 hull damage/shaken                                                                                         |
+| **When complication threatens a system** | Reinforce failing system | Repair | When a Complication result calls for it: Repair check (TN 4) with same modifier as Pilot (Disaster -4, Major -4, Complication -2). Success = avoid system failure before 1d6 system roll. |
+| **Between rounds**                       | Emergency patch          | Repair | Restore limited function to heavily damaged system (GM discretion)                                                                                                                        |
 
 
 **Engineer Support:** Before the Pilot's check, an Engineer can use **Support** (Repair or Knowledge: Engineering): success = +1 to Pilot's Piloting check; raise = +2.
@@ -309,8 +320,8 @@ Each crew role has specific responsibilities. A character may fill multiple role
 | -------------------- | ------------------- | ------------------------------------- | ------------------------------------------------------------------------------------------------------- |
 | **Support phase**    | Support Pilot       | Common Knowledge, Notice, or Piloting | Success = +1 to Pilot's Piloting check. Raise = +2                                                      |
 | **Support phase**    | Spot for Gunner     | Notice                                | Success = +1 to one Gunner's Shooting. Raise = +2                                                       |
-| **Initiative phase** | Tactical assessment | Smarts or Battle                      | Success = one crewmember may reroll one failed check this round. Raise = reroll + ignore one -2 penalty |
-| **Any phase**        | Call out targets    | ?                                     | Designate primary target; first Gunner to hit that target gets +1 (once per round)                      |
+| **Support phase**    | Tactical assessment | Smarts or Battle                      | Success = one crewmember may reroll one failed check this round. Raise = reroll + ignore one -2 penalty |
+| **Any phase**        | Call out targets    | Battle or Smarts                      | Designate primary target; first Gunner to hit that target gets +1 (once per round)                      |
 
 
 **Small ships:** The co-pilot often doubles as a Gunner or Systems Operator. One Support action per round.
@@ -324,12 +335,12 @@ Each crew role has specific responsibilities. A character may fill multiple role
 **Your job:** Manage shields, sensors, and communications. Optional on small craft; essential on larger ships.
 
 
-| When                | Action                    | Skill                 | Effect                                                                                  |
-| ------------------- | ------------------------- | --------------------- | --------------------------------------------------------------------------------------- |
-| **Systems phase**   | Activate shield regen     | Electronics           | Success = 5% of max shields. +5% per raise. See Shields section.                        |
-| **Support phase**   | Sensor lock               | Electronics or Notice | Success = +1 to one Gunner's Shooting vs designated target. Raise = +2                  |
-| **Systems phase**   | Jamming / countermeasures | Electronics           | Opposed vs enemy Electronics or Piloting; success = -2 to enemy attacks or sensor locks |
-| **When Club drawn** | Diagnose                  | Electronics or Repair | Identify failing system; success = Engineer gets +1 to Repair that system               |
+| When                                     | Action                    | Skill                 | Effect                                                                                  |
+| ---------------------------------------- | ------------------------- | --------------------- | --------------------------------------------------------------------------------------- |
+| **Systems phase**                        | Activate shield regen     | Electronics           | Success = 5% of max shields. +5% per raise. See Shields section.                        |
+| **Support phase**                        | Sensor lock               | Electronics or Notice | Success = +1 to one Gunner's Shooting vs designated target. Raise = +2                  |
+| **Systems phase**                        | Jamming / countermeasures | Electronics           | Opposed vs enemy Electronics or Piloting; success = -2 to enemy attacks or sensor locks |
+| **When complication threatens a system** | Diagnose                  | Electronics or Repair | Identify failing system; success = Engineer gets +1 to Repair that system               |
 
 
 **Shields:** Declare shield facing at start of Gunnery phase. See Shields section for absorption, regeneration, and directional rules.
@@ -355,13 +366,13 @@ Each crew role has specific responsibilities. A character may fill multiple role
 
 ### Round Summary (Quick Reference)
 
-1. **Initiative**: Draw cards; compare for advantage.
-2. **Support**: Co-pilot, Commander, Engineer, Systems Operator aid Pilot/Gunners.
-3. **Piloting**: Pilot rolls; determine final initiative card.
-4. **Maneuver**: Pilot chooses Evade, Stay on Target, I Have You Now, I Can Hold It, Boost, or Loop.
-5. **Gunnery**: Gunners fire (advantage = all weapons; no advantage = turrets only, -2).
-6. **Systems**: Engineer repairs; Systems Operator activates shield regen (Electronics), sensor locks.
-7. **Complications**: Resolve Clubs; Engineer may attempt Reinforce when Club drawn.
+1. **Initiative**: Each ship draws **one** card (no Piloting roll); compare for order, advantage, and range.
+2. **Support** (optional): Trait rolls to aid Pilot (before maneuvers) or Gunners—see **Player Jobs**.
+3. **Maneuver**: Pilot chooses Evade, Stay on Target, I Have You Now, I Can Hold It, Boost, I Know a Few Maneuvers, or Loop.
+4. **Gunnery**: Gunners fire; each **ship that takes hull damage** (see §4) rolls **Complications (2d6)**.
+5. **Systems**: Engineer repairs; Systems Operator activates shield regen (Electronics), sensor locks.
+6. **Complications**: Resolve complication **follow-up** from damage taken this round (Reinforce, Diagnose, etc.).
+7. **End of round:** Any ship that meets the **Break away (sublight)** conditions may declare it is leaving (see **Combat End**).
 
 ---
 
@@ -372,10 +383,13 @@ Each crew role has specific responsibilities. A character may fill multiple role
 - **To hit:** TN 4. Modifiers stack (range, target Evading -2, etc.); apply total to your Shooting roll.
 - **Range table:** 2 = no attack; 3-7 = long (-4); 8-Jack = medium (-2); Queen-Joker = short (0).
 - **Snapfire** (torpedoes): -2 unless target at short range.
+- **Complications:** Each time a ship **takes hull damage** from a successful attack, roll **2d6** on the Complications table **for the ship that was hit** (see below; **§4** defines *takes hull damage*).
 
-### Complications (Clubs)
+### Complications (2d6 on hull damage)
 
-When a ship draws a Club for initiative, roll 2d6 on the table below. **Pilot roll -X** means the Pilot makes a Piloting check (TN 4) with that modifier applied to the roll; fail = subsystem offline (or major system failure on Disaster). The **Engineer** may attempt **Reinforce** (Repair check, TN 4, same modifier as the Pilot) to avoid the failure; success = subsystem stays online. If the result is a **major system failure** or **subsystem offline**, roll 1d6 on the **Ship Systems Chart** to determine which system is affected.
+Each time a ship **takes hull damage** from a hit, roll **2d6 once** for **that ship** (see §2 for misses / timing; **§4** for what counts as hull damage).
+
+**Pilot roll -X:** Piloting (TN 4) at that modifier; fail = subsystem offline (or major system failure on Disaster). **Engineer Reinforce:** Repair (TN 4), same modifier; success = avoid that failure before the 1d6 system roll. **Major system failure** or **subsystem offline** → roll 1d6 on **Ship Systems Chart**.
 
 
 | 2d6  | Effect                                                                                         |
@@ -407,7 +421,8 @@ Roll 1d6 to determine which system is affected. Apply the effect from the approp
 Combat may end in several ways:
 
 - **Voluntary escape:** A ship may attempt to **hyperjump** away (requires Nav Computer online; Astrogation check as usual). Success = ship escapes; combat ends for that ship. Pursuers may give chase (GM's discretion) or break off.
-- **GM call-off:** The GM may **narratively call off the pursuit** at any time?e.g., reinforcements arrive, terrain interferes, the chase is no longer dramatic.
+- **Break away (sublight):** At the **end of the round**—after **Complications** (and any other end-of-round cleanup)—a ship may declare it is **flying away** and **ending the engagement** if **both** are true, judged using **this round’s** initiative cards (drawn at the start of the round) and ship stats: (1) its initiative **card rank** is **higher than every opposing ship’s** card (Joker counts highest; on a **tie** at the same rank with any enemy, this option does not apply unless the GM rules otherwise), and (2) its **Top Speed** (from ship stats) is **greater than each opposing ship’s Top Speed**. No roll is required unless the GM adds one. Remaining ships may keep fighting or the GM may close the scene.
+- **GM call-off:** The GM may **narratively call off the pursuit** at any time—e.g., reinforcements arrive, terrain interferes, the chase is no longer dramatic.
 - **Random roll (optional):** After round 5, GM may roll a die each round: **odd** = combat ends (break off or escape); **even** = continues.
 
 ---
@@ -417,39 +432,40 @@ Combat may end in several ways:
 **Setup:** A Rebel X-wing vs two TIE fighters.
 
 1. **Round 1**
-  - All draw for initiative. X-wing draws a 10, TIEs draw a 7 and a 3.
+  - All draw for initiative. X-wing draws **10**; TIEs draw **7** and **3** (one card each).
   - X-wing has advantage over both TIEs. TIE 1 has advantage over TIE 2.
-  - X-wing: Piloting check (+1 Handling, +1 momentum from speed)?success = keeps 10.
+  - **Maneuver:** X-wing lines up shots; TIEs jockey for position (Boost, Stay on Target, etc. as chosen).
   - X-wing fires all forward lasers at TIE 1 (medium range, -2).
   - TIEs: Without advantage, may only use turret-like weapons (or rear weapons if applicable) at -2.
   - Resolve damage, apply hull damage/shaken as usual.
 2. **Round 2**
-  - TIE 2 draws a Club?rolls Complication table; gets "Distraction" (lose all momentum).
-  - Maneuvers from R1 may apply: e.g., TIE 1 did Boost (success)?+2 momentum this round.
-  - Repeat initiative, advantage, and firing.
+  - Example: TIE 2 is **hit** and loses shields—roll **Complications** for TIE 2 (e.g. **Distraction**: lose all momentum).
+  - Maneuvers from R1 still apply (e.g. TIE 1 **Boost** success → +2 momentum).
+  - Repeat initiative, maneuvers, advantage, and firing.
 3. **Round 5+**
-  - GM rolls: 5 = odd?combat ends. X-wing escapes; TIEs break off.
+  - GM rolls: 5 = odd—combat ends. X-wing escapes; TIEs break off.
 
 ---
 
 ## 7. Quick Reference: Modifiers
 
 
-| Modifier                                            | Value                        |
-| --------------------------------------------------- | ---------------------------- |
-| Base TN (ship attacks)                              | 4                            |
-| Speed advantage (faster than majority of opponents) | +1 momentum                  |
-| Speed advantage (2× faster than majority)           | +2 momentum                  |
-| Climb advantage (atmosphere)                        | +2                           |
-| Harsh terrain (debris, asteroids)                   | -2                           |
-| Ship hull damaged / Shaken (see Hull)               | -1 or -2                     |
-| Lose all momentum                                   | Distraction, becoming Shaken |
-| Without advantage (return fire)                     | -2 Shooting                  |
-| Long range                                          | -4                           |
-| Medium range                                        | -2                           |
-| Evade: target Evading (incoming targeting)          | -2 to hit that target        |
-| I Have You Now: you succeeded (vs declared target)  | +2 to hit that target        |
-| Unstable platform (firing from moving ship)         | -2 (often negated by Edges)  |
+| Modifier                                                               | Value                        |
+| ---------------------------------------------------------------------- | ---------------------------- |
+| Base TN (ship attacks)                                                 | 4                            |
+| Handling advantage (higher Handling than strict majority of opponents) | +1 momentum                  |
+| Handling advantage (also ≥ highest enemy Handling + 3)                 | +2 momentum instead          |
+| Climb advantage (atmosphere)                                           | +2                           |
+| Harsh terrain (debris, asteroids)                                      | -2                           |
+| Ship hull damaged / Shaken (see Hull)                                  | -1 or -2                     |
+| Lose all momentum                                                      | Distraction, becoming Shaken |
+| Without advantage (return fire)                                        | -2 Shooting                  |
+| Long range                                                             | -4                           |
+| Medium range                                                           | -2                           |
+| Evade: target Evading (incoming targeting)                             | -2 to hit that target        |
+| Loop raise: defender Looped with raise                                 | −1 to hit that ship          |
+| I Have You Now: you succeeded (vs declared target)                     | +2 to hit that target        |
+| Unstable platform (firing from moving ship)                            | -2 (often negated by Edges)  |
 
 
 ---
@@ -474,8 +490,8 @@ Apply these on top of the initiative-card and ship rules above for Star Wars sta
 | ----------------- | -------------------------------- | ------------------------------------------------------------- |
 | Initiative cards  | This guide                       | Turn order, advantage, range; maneuvers add/subtract momentum |
 | Ship stats        | Ship sources / Star Wars content | Handling, Speed, Toughness, weapons                           |
-| Combat flow       | Geek Ken variant + SWADE         | Advantage, range, snapfire, complications                     |
+| Combat flow       | This guide + SWADE               | Advantage, range, snapfire; complications on **hull damage**  |
 | Star Wars content | Star Wars Companion              | Ships, weapons, shields, ion, Edges                           |
 
 
-Result: abstract, fast ship combat that feels like Star Wars dogfights, driven by initiative cards, Piloting, advantage, and range?without needing a battle mat or detailed positioning.
+Result: abstract, fast ship combat that feels like Star Wars dogfights, driven by initiative cards, Piloting, advantage, and range—without needing a battle mat or detailed positioning.

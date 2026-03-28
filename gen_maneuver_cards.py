@@ -29,15 +29,17 @@ MANEUVERS = [
     ("Evade", "Piloting TN 4, -1 per opponent",
      ["Success: -2 to opponents targeting you", "Raise: negates Stay on Target"]),
     ("Stay on Target", "Opposed Piloting vs one target",
-     ["Success: target -2 momentum", "Raise: you +1 momentum"]),
+     ["Success: target -1 momentum", "Raise: you +1 momentum"]),
     ("I Have You Now", "Req: +2 momentum. Opposed vs target.",
      ["Success: +2 Gunnery, -2 momentum", "Raise: +2 Gunnery, no loss", "Fail: -4 momentum"]),
     ("I Can Hold It", "Steady flight",
-     ["Shaken: must declare (clears Shaken)", "No roll"]),
+     ["Shaken: must declare (clears Shaken)", "Optional: reset momentum to 0", "No roll"]),
     ("Boost", "Piloting TN 4",
-     ["Success: +2 momentum", "Raise: +1 extra card", "Crit fail: -2 momentum"]),
+     ["Success: +2 momentum", "Raise: extra initiative card, choose"]),
+    ("I Know a Few Maneuvers", "Piloting TN 4",
+     ["Success: extra initiative card, choose", "Raise: +1 card per raise, then choose", "No momentum change"]),
     ("Loop", "Opposed vs higher card. -(Size-Handling) + momentum",
-     ["Success: advantage +1 momentum", "Crit fail: -2 momentum"]),
+     ["Success: advantage +1 momentum", "Raise: -1 to ships targeting you", "Crit fail: -2 momentum"]),
 ]
 
 
