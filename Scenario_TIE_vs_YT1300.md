@@ -52,7 +52,7 @@ Each ship draws **one** initiative card (**no Piloting roll**). Results:
 - YT-1300 Systems Operator: **Electronics** check to activate shield regen. Rolls 7 — success. Recover 5% of 40 = **2**. **YT-1300 shields: 28.**
 
 ### Complications (damage)
-- **YT-1300** took hull damage (shield hit from TIE 1). Complication **2d6 = 9**. **Complication:** Pilot roll -2; fail = subsystem offline. YT-1300 Pilot makes Piloting check (TN 4, -2): rolls 3, fail. **Sensor glitch** on freighter — -1 to next Gunnery (GM fiat).
+- **YT-1300** took hull damage (shield hit from TIE 1). Complication **2d6 = 9**. **Subsystem offline** (no Piloting check) — roll **1d6** on Ship Systems Chart (**subsystem** column). **Example (GM):** targeting/sensors glitch — −1 to next Gunnery until repaired.
 
 ---
 
@@ -150,7 +150,7 @@ Each ship draws **one** initiative card (**no Piloting roll**). Results:
 
 ### Complications (damage)
 - **YT-1300** took hull damage (shields depleted; overflow did not add hull damage). Complication **2d6 = 3**. **Distraction** — YT-1300 loses all momentum.
-- **TIE 1** took hull damage (second hull hit; Crippled). Complication **2d6 = 11**. **Complication:** Pilot -2; fail = subsystem offline (GM resolves).
+- **TIE 1** took hull damage (second hull hit; Crippled). Complication **2d6 = 11**. **Subsystem offline** — roll **1d6** on Ship Systems Chart (**subsystem** column); GM resolves.
 
 ---
 

@@ -75,14 +75,14 @@ def complication_roll():
 
 def complication_text(cr):
     if cr == 2:
-        return "Disaster (Pilot -4; fail = major system failure)"
+        return "Disaster (major system failure; roll 1d6 Ship Systems — major column)"
     if 3 <= cr <= 5:
         return "Distraction (ship loses all momentum)"
     if 6 <= cr <= 8:
         return "Flight deck ionization (10 stun damage to a random crew member)"
     if 9 <= cr <= 11:
-        return "Complication (Pilot -2; fail = subsystem offline)"
-    return "Major (Pilot -4; fail = subsystem offline)"
+        return "Complication (subsystem offline; roll 1d6 Ship Systems — subsystem column)"
+    return "Major (subsystem offline; roll 1d6 Ship Systems — subsystem column; -1 to Repair to fix that subsystem until repaired)"
 
 
 # Simulate 5 rounds with full state

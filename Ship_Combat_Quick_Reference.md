@@ -9,9 +9,9 @@ One-page style cheat sheet. **Full rules:** `SWADE_Star_Wars_Ship_Combat_Guide.m
 1. **Initiative** — Each ship **one** card → order, **advantage**, **range**. Pilot: **no** Piloting roll. **Boost** raise / **I Know a Few Maneuvers** add card(s) in step 3.
 2. **Support** (optional) — Crew trait rolls **before** maneuvers (aid Pilot / Gunners).
 3. **Maneuver** — Pilot picks **one**: Evade, Stay on Target, I Have You Now, I Can Hold It, Boost, I Know a Few Maneuvers, Loop.
-4. **Gunnery** — Shooting in initiative order; **hull damage** → **2d6 Complications** for ship hit (now or note for step 6).
+4. **Gunnery** — Shooting in initiative order; **hull damage** → **2d6 Complications** for ship hit (**apply immediately**; step 6 = follow-up).
 5. **Systems** — Repair; shield regen (Electronics); jamming; etc.
-6. **Complications** — Reinforce, Diagnose, follow-up from **2d6** results.
+6. **Complications** — Apply **2d6** results immediately; Diagnose / Repair follow-up.
 7. **End of round** — **Break away** if eligible (after step 6).
 
 ---
@@ -59,7 +59,6 @@ One-page style cheat sheet. **Full rules:** `SWADE_Star_Wars_Ship_Combat_Guide.m
 - **Advantage** (higher card): all weapons that bear; each **weapon system** may pick a target.
 - **No advantage:** **turrets only**, **−2** Shooting.
 - **Snapfire** (torpedoes/missiles): **−2** unless target at **short** range.
-- **Unstable platform:** **−2** (Edges may negate) — full guide.
 
 ---
 
@@ -84,15 +83,15 @@ One-page style cheat sheet. **Full rules:** `SWADE_Star_Wars_Ship_Combat_Guide.m
 
 ## Complications (2d6 when ship takes hull damage)
 
-**Pilot roll −X:** Piloting TN 4 at that mod; fail → offline / major per result. **Engineer Reinforce:** Repair TN 4, same mod — success may avoid failure before **1d6** system. **Major failure** or **subsystem offline** → **1d6** system chart.
+**No Piloting check** on the complication — apply the **2d6** result **immediately**. **Major system failure** or **subsystem offline** → roll **1d6** on the system chart (matching column). **Diagnose** / **Repair** in follow-up (guide §5).
 
 | 2d6 | Effect |
 | --- | ------ |
-| 2 | **Disaster** — Pilot −4; fail = **major system failure** (d6) |
+| 2 | **Disaster** — **major system failure** (d6 **major** column) |
 | 3–5 | **Distraction** — lose all momentum |
 | 6–8 | **Ionization** — 10 stun random crew |
-| 9–11 | **Complication** — Pilot −2; fail = **subsystem offline** (d6) |
-| 12 | **Major** — Pilot −4; fail = **subsystem offline** (d6) |
+| 9–11 | **Complication** — **subsystem offline** (d6 **subsystem** column) |
+| 12 | **Major** — **subsystem offline** (d6 **subsystem** column); **also** −1 to **Repair** to fix **that** subsystem until repaired |
 
 ### Ship Systems (d6)
 
@@ -102,7 +101,7 @@ One-page style cheat sheet. **Full rules:** `SWADE_Star_Wars_Ship_Combat_Guide.m
 | 2 | Nav | No hyperspace | Astrogation delayed |
 | 3 | Shields | All down | No regen until repair |
 | 4 | Weapons | All offline | One bank/turret offline |
-| 5 | Life support | Breach; −2 all | −1 one crew check |
+| 5 | Life support | Breach; −2 all | Environmental ionization; −1 one crew role until repaired |
 | 6 | Sensors/Comms | −4 Shooting; no comms | −2 Shooting |
 
 *(Full text: full guide.)*
@@ -124,7 +123,6 @@ One-page style cheat sheet. **Full rules:** `SWADE_Star_Wars_Ship_Combat_Guide.m
 | Target **Evade** success | **−2** to hit that ship |
 | **Loop** raise vs you | **−1** to hit you |
 | **I Have You Now** — you succeeded vs declared target | **+2** Gunnery vs that target |
-| Unstable platform | **−2** Shooting |
 
 ---
 
@@ -144,12 +142,6 @@ One-page style cheat sheet. **Full rules:** `SWADE_Star_Wars_Ship_Combat_Guide.m
 | Engineer | Support Pilot (Repair or Know.: Eng) |
 | Systems Op | Sensor lock (Support) |
 | Co-pilot | **Call out targets** (Battle or Smarts) — any phase; first hit on call +1 (1/round) |
-
----
-
-## Edges (see SWADE + Star Wars Companion)
-
-**Pilot:** Ace, Steady Hands, Quick, Level-Headed · **Gunner:** Ace Gunner, Steady Hands, Marksman · **Engineer:** McGyver, Mr. Fix It · **Command:** Command, Tactician
 
 ---
 

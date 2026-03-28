@@ -11,7 +11,7 @@ A quick reference for players. Full rules: **SWADE_Star_Wars_Ship_Combat_Guide.m
 3. **Maneuver** — Pilot chooses one maneuver.  
 4. **Gunnery** — Shooting; **hull damage** (see §4) → **Complications 2d6** for the ship hit.  
 5. **Systems** — repairs, shield regen, jamming.  
-6. **Complications** — Reinforce, Diagnose, follow-up; **end of round:** **break away** if eligible.
+6. **Complications** — Apply **2d6** results (chart, Diagnose, Repair follow-up); **end of round:** **break away** if eligible.
 
 ### Phase Details
 
@@ -64,8 +64,8 @@ A quick reference for players. Full rules: **SWADE_Star_Wars_Ship_Combat_Guide.m
 **6. Complications** — *Who: GM (players react)*
 
 - Resolve **follow-up** from **hull damage** complications this round (not from initiative suits).
-- **Major system failure** or **subsystem offline** → roll **1d6** on Ship Systems Chart.
-- Engineer **Reinforce** / Systems Op **Diagnose** when the result calls for it (guide §5).
+- **Apply immediately** — **no Piloting check** on the complication. **Major system failure** or **subsystem offline** → roll **1d6** on Ship Systems Chart.
+- Systems Op **Diagnose** / Engineer **Repair** for follow-up (guide §5).
 - **End of round (after Complications):** **Break away (sublight)** if your card beat **all** enemies’ **this round** **and** your **Top Speed** > **each** enemy’s; or hyperjump / GM call-off / optional die after round 5 (guide **Combat End**).
 
 ---
@@ -108,7 +108,7 @@ A quick reference for players. Full rules: **SWADE_Star_Wars_Ship_Combat_Guide.m
 | 3 Maneuver      | —                                                                |
 | 4 Gunnery       | —                                                                |
 | 5 Systems       | **Repair** subsystem (bring offline system back)                |
-| 6 Complications | **Reinforce** (when complication calls for it; same modifier as Pilot; success = avoid failure) |
+| 6 Complications | **Repair** follow-up (after chart effects); **Diagnose** if Systems Op acts (guide §5) |
 
 
 ### Co-pilot / Commander
@@ -153,16 +153,16 @@ A quick reference for players. Full rules: **SWADE_Star_Wars_Ship_Combat_Guide.m
 | Queen–Joker | Short   | 0        |
 
 
-**Complications (2d6 on hull damage)** — Pilot roll −X = Piloting TN 4 at that modifier; Engineer **Reinforce** / Systems **Diagnose** per guide §5. Major failure or subsystem offline → also **1d6** Ship Systems Chart.
+**Complications (2d6 on hull damage)** — Apply result **immediately** (no Piloting check). Major failure or subsystem offline → **1d6** Ship Systems Chart. **Diagnose** / **Repair** follow-up per guide §5.
 
 
 | 2d6  | Effect                                                                 |
 | ---- | ---------------------------------------------------------------------- |
-| 2    | **Disaster:** Piloting −4; fail = **major system failure** (roll 1d6)   |
+| 2    | **Disaster:** **major system failure** (roll 1d6, **major** column)    |
 | 3–5  | **Distraction:** lose all momentum                                     |
 | 6–8  | **Flight deck ionization:** 10 stun to random crew                     |
-| 9–11 | **Complication:** Pilot −2; fail = **subsystem offline** (roll 1d6)    |
-| 12   | **Major:** Pilot −4; fail = **subsystem offline** (roll 1d6)          |
+| 9–11 | **Complication:** **subsystem offline** (roll 1d6, **subsystem** column) |
+| 12   | **Major:** **subsystem offline** (roll 1d6, **subsystem** column); **also** −1 to **Repair** to fix **that** subsystem until it is repaired |
 
 
 **Ship Systems Chart (1d6)** — Match columns to **major system failure** vs **subsystem offline** (guide §5).
@@ -174,7 +174,7 @@ A quick reference for players. Full rules: **SWADE_Star_Wars_Ship_Combat_Guide.m
 | 2   | Nav Computer        | Hyperdrive offline; cannot jump             | Nav glitch; Astrogation delayed           |
 | 3   | Deflector Shields   | Shields fully down; 0 until repaired        | Flickering; no shield regen until repair  |
 | 4   | Weapons             | All weapons offline                         | One bank/turret offline                   |
-| 5   | Life Support        | Breach / critical; −2 all checks            | Environmental glitch; −1 one crew check   |
+| 5   | Life Support        | Breach / critical; −2 all checks            | Environmental ionization; −1 one crew role until repaired |
 | 6   | Sensors / Comms     | Blind / dead comms; −4 Shooting             | Targeting/sensors; −2 Shooting            |
 
 

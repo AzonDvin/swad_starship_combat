@@ -94,7 +94,7 @@
 - YT-1300 Electronics (Engineer d10+wild d6): Rolls 8 — raise. +4 shields.
 
 ### Complications (damage)
-- **YT-1300** took hull damage — Complication **2d6 = 2**. Disaster (Pilot -4; fail = major system failure)
+- **YT-1300** took hull damage — Complication **2d6 = 2**. Disaster (major system failure; roll 1d6 Ship Systems — major column)
 
 ---
 
@@ -130,7 +130,7 @@
 - YT-1300 Electronics (Engineer d10+wild d6): Rolls 11 — raise. +4 shields.
 
 ### Complications (damage)
-- **TIE 2** took hull damage — Complication **2d6 = 9**. Complication (Pilot -2; fail = subsystem offline)
+- **TIE 2** took hull damage — Complication **2d6 = 9**. Complication (subsystem offline; roll 1d6 Ship Systems — subsystem column)
 
 ---
 
@@ -166,7 +166,7 @@
 - YT-1300 Electronics (Engineer d10+wild d6): Rolls 9 — raise. +4 shields.
 
 ### Complications (damage)
-- **YT-1300** took hull damage — Complication **2d6 = 2**. Disaster (Pilot -4; fail = major system failure)
+- **YT-1300** took hull damage — Complication **2d6 = 2**. Disaster (major system failure; roll 1d6 Ship Systems — major column)
 - **TIE 2** took hull damage — Complication **2d6 = 6**. Flight deck ionization (10 stun damage to a random crew member)
 
 ---
@@ -204,7 +204,7 @@
 
 ### Complications (damage)
 - **YT-1300** took hull damage — Complication **2d6 = 7**. Flight deck ionization (10 stun damage to a random crew member)
-- **TIE 3** took hull damage — Complication **2d6 = 9**. Complication (Pilot -2; fail = subsystem offline)
+- **TIE 3** took hull damage — Complication **2d6 = 9**. Complication (subsystem offline; roll 1d6 Ship Systems — subsystem column)
 
 ---
 
